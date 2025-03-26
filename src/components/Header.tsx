@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { ThemeToggle } from './ThemeToggle';
 
 type NavItem = {
   label: string;
@@ -23,7 +24,7 @@ export function Header({ className, ...props }: HeaderProps) {
       {...props}
     >
       <div className="flex items-center">
-        <a href="/" className="text-white text-xl font-bold tracking-wider">
+        <a href="/" className="text-white dark:text-white text-xl font-bold tracking-wider">
           WIINTA
         </a>
       </div>
@@ -33,20 +34,21 @@ export function Header({ className, ...props }: HeaderProps) {
           <a
             key={item.label}
             href={item.href}
-            className="text-sm text-white/80 hover:text-white transition-colors"
+            className="text-sm text-white/80 dark:text-white/80 hover:text-white dark:hover:text-white transition-colors"
           >
             {item.label}
           </a>
         ))}
       </nav>
       
-      <div>
+      <div className="flex items-center">
         <a
           href="#try"
-          className="inline-flex items-center justify-center rounded-full border border-white/20 bg-transparent px-5 py-2 text-sm text-white transition-all hover:bg-white/10"
+          className="inline-flex items-center justify-center rounded-full border border-white/20 dark:border-white/20 bg-transparent px-5 py-2 text-sm text-white dark:text-white transition-all hover:bg-white/10 dark:hover:bg-white/10"
         >
           Try Wiinta
         </a>
+        <ThemeToggle />
       </div>
     </header>
   );
