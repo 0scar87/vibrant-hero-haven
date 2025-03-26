@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './ThemeToggle';
+import { useTheme } from './ThemeProvider';
 
 type NavItem = {
   label: string;
@@ -19,6 +20,8 @@ const navItems: NavItem[] = [
 interface HeaderProps extends React.HTMLAttributes<HTMLElement> {}
 
 export function Header({ className, ...props }: HeaderProps) {
+  const { theme } = useTheme();
+  
   return (
     <header
       className={cn('w-full px-6 py-4 flex items-center justify-between animate-fade-in opacity-0', className)}
@@ -45,7 +48,13 @@ export function Header({ className, ...props }: HeaderProps) {
       <div className="flex items-center">
         <Link
           to="/login"
-          className="inline-flex items-center justify-center rounded-full border border-black/20 dark:border-white/20 bg-transparent px-5 py-2 text-sm text-black dark:text-white transition-all hover:bg-black/10 dark:hover:bg-white/10"
+          className={cn(
+            "inline-flex items-center justify-center rounded-full px-5 py-2 text-sm transition-all",
+            theme === 'dark' 
+              ? "bg-white text-black hover:bg-white/90" 
+              : "bg-black text-white hover:bg-black/90",
+            "border border-black/20 dark:border-white/20"
+          )}
         >
           Try Wiinta
         </Link>
