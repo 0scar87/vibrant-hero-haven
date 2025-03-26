@@ -93,7 +93,7 @@ const Login = () => {
         {/* Right side - Image */}
         <div className="hidden lg:block lg:w-1/2">
           <img
-            src="/lovable-uploads/757a1ce9-ef11-43f2-beba-6c4bb4d7ed23.png"
+            src="https://static.vecteezy.com/system/resources/previews/030/711/972/large_2x/beautiful-girl-wearing-headset-generative-ai-free-photo.jpg"
             alt="Person with headphones"
             className="h-full w-full object-cover"
           />
