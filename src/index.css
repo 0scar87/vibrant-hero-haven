@@ -86,7 +86,7 @@
 
 @layer base {
   * {
-    @apply border-border selection:bg-white/10 selection:text-white dark:selection:bg-white/10 dark:selection:text-white;
+    @apply border-border selection:bg-black/10 selection:text-black dark:selection:bg-white/10 dark:selection:text-white;
   }
 
   body {
@@ -103,7 +103,7 @@
   }
   
   .search-bar {
-    @apply bg-white/5 dark:bg-black/40 backdrop-blur-lg border border-black/10 dark:border-white/10 rounded-full;
+    @apply bg-black/5 dark:bg-black/40 backdrop-blur-lg border border-black/10 dark:border-white/10 rounded-full;
     box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
   }
   
