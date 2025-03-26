@@ -12,7 +12,7 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { label: 'Research', href: '#research' },
-  { label: 'Company', href: '#company' },
+  { label: 'Company', href: '/company' },
   { label: 'Neurolense', href: '#neurolense' },
   { label: 'Careers', href: '#careers' },
 ];
@@ -35,13 +35,23 @@ export function Header({ className, ...props }: HeaderProps) {
       
       <nav className="hidden md:flex items-center space-x-10">
         {navItems.map((item) => (
-          <a
-            key={item.label}
-            href={item.href}
-            className="text-sm text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
-          >
-            {item.label}
-          </a>
+          item.href.startsWith('/') ? (
+            <Link
+              key={item.label}
+              to={item.href}
+              className="text-sm text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
+            >
+              {item.label}
+            </Link>
+          ) : (
+            <a
+              key={item.label}
+              href={item.href}
+              className="text-sm text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
+            >
+              {item.label}
+            </a>
+          )
         ))}
       </nav>
       
