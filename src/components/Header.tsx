@@ -1,0 +1,53 @@
+
+import React from 'react';
+import { cn } from '@/lib/utils';
+
+type NavItem = {
+  label: string;
+  href: string;
+};
+
+const navItems: NavItem[] = [
+  { label: 'Research', href: '#research' },
+  { label: 'Company', href: '#company' },
+  { label: 'Neurolense', href: '#neurolense' },
+  { label: 'Careers', href: '#careers' },
+];
+
+interface HeaderProps extends React.HTMLAttributes<HTMLElement> {}
+
+export function Header({ className, ...props }: HeaderProps) {
+  return (
+    <header
+      className={cn('w-full px-6 py-4 flex items-center justify-between animate-fade-in opacity-0', className)}
+      {...props}
+    >
+      <div className="flex items-center">
+        <a href="/" className="text-white text-xl font-bold tracking-wider">
+          WIINTA
+        </a>
+      </div>
+      
+      <nav className="hidden md:flex items-center space-x-10">
+        {navItems.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            className="text-sm text-white/80 hover:text-white transition-colors"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+      
+      <div>
+        <a
+          href="#try"
+          className="inline-flex items-center justify-center rounded-full border border-white/20 bg-transparent px-5 py-2 text-sm text-white transition-all hover:bg-white/10"
+        >
+          Try Wiinta
+        </a>
+      </div>
+    </header>
+  );
+}
