@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './ThemeToggle';
 
@@ -42,12 +43,12 @@ export function Header({ className, ...props }: HeaderProps) {
       </nav>
       
       <div className="flex items-center">
-        <a
-          href="#try"
+        <Link
+          to="/login"
           className="inline-flex items-center justify-center rounded-full border border-black/20 dark:border-white/20 bg-transparent px-5 py-2 text-sm text-black dark:text-white transition-all hover:bg-black/10 dark:hover:bg-white/10"
         >
           Try Wiinta
-        </a>
+        </Link>
         <ThemeToggle />
       </div>
     </header>
