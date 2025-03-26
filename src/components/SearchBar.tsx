@@ -20,7 +20,7 @@ export function SearchBar() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Ask Wiinta anything"
-            className="w-full bg-transparent border-0 text-white placeholder-white/40 px-6 py-4 focus:outline-none focus:ring-0"
+            className="w-full bg-transparent border-0 text-black dark:text-white placeholder-black/40 dark:placeholder-white/40 px-6 py-4 focus:outline-none focus:ring-0"
             aria-label="Search"
           />
           <button
