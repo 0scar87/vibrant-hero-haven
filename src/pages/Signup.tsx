@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { Header } from '@/components/Header';
+import { useTheme } from '@/components/ThemeProvider';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -13,6 +14,7 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const { toast } = useToast();
   const navigate = useNavigate();
+  const { theme } = useTheme();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,7 +37,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-black dark:bg-black text-white">
+    <div className={`flex flex-col min-h-screen ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <Header />
       
       <div className="flex flex-1">
@@ -43,7 +45,7 @@ const Signup = () => {
         <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 md:px-16 lg:px-24">
           <div className="mb-12">
             <h1 className="text-4xl font-bold tracking-wider">WIINTA</h1>
-            <p className="mt-6 text-lg text-white/80">
+            <p className={`mt-6 text-lg ${theme === 'dark' ? 'text-white/80' : 'text-black/80'}`}>
               Join us today and start your journey with Wiinta.
             </p>
           </div>
@@ -57,7 +59,7 @@ const Signup = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Jane Doe"
-                className="bg-white/5 border-white/10 text-white placeholder:text-white/40"
+                className={`${theme === 'dark' ? 'bg-white/5 border-white/10 text-white placeholder:text-white/40' : 'bg-black/5 border-black/10 text-black placeholder:text-black/40'}`}
                 required
               />
             </div>
@@ -70,7 +72,7 @@ const Signup = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="jane@gmail.com"
-                className="bg-white/5 border-white/10 text-white placeholder:text-white/40"
+                className={`${theme === 'dark' ? 'bg-white/5 border-white/10 text-white placeholder:text-white/40' : 'bg-black/5 border-black/10 text-black placeholder:text-black/40'}`}
                 required
               />
             </div>
@@ -83,7 +85,7 @@ const Signup = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="At least 8 characters"
-                className="bg-white/5 border-white/10 text-white placeholder:text-white/40"
+                className={`${theme === 'dark' ? 'bg-white/5 border-white/10 text-white placeholder:text-white/40' : 'bg-black/5 border-black/10 text-black placeholder:text-black/40'}`}
                 required
               />
             </div>
@@ -96,27 +98,27 @@ const Signup = () => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Confirm your password"
-                className="bg-white/5 border-white/10 text-white placeholder:text-white/40"
+                className={`${theme === 'dark' ? 'bg-white/5 border-white/10 text-white placeholder:text-white/40' : 'bg-black/5 border-black/10 text-black placeholder:text-black/40'}`}
                 required
               />
             </div>
 
             <Button
               type="submit"
-              className="w-full bg-white text-black hover:bg-white/90 transition-colors"
+              className={`w-full ${theme === 'dark' ? 'bg-white text-black hover:bg-white/90' : 'bg-black text-white hover:bg-black/90'} transition-colors`}
             >
               Sign up
             </Button>
 
-            <div className="flex items-center gap-4 py-2 text-white/60">
-              <div className="h-px flex-1 bg-white/20"></div>
+            <div className={`flex items-center gap-4 py-2 ${theme === 'dark' ? 'text-white/60' : 'text-black/60'}`}>
+              <div className={`h-px flex-1 ${theme === 'dark' ? 'bg-white/20' : 'bg-black/20'}`}></div>
               <span className="text-sm">Or</span>
-              <div className="h-px flex-1 bg-white/20"></div>
+              <div className={`h-px flex-1 ${theme === 'dark' ? 'bg-white/20' : 'bg-black/20'}`}></div>
             </div>
 
-            <div className="text-center text-sm text-white/80">
+            <div className={`text-center text-sm ${theme === 'dark' ? 'text-white/80' : 'text-black/80'}`}>
               Already have an account?{" "}
-              <Link to="/login" className="text-white hover:underline">
+              <Link to="/login" className={`${theme === 'dark' ? 'text-white hover:underline' : 'text-black hover:underline'}`}>
                 Sign in
               </Link>
             </div>
