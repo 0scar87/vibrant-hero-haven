@@ -6,18 +6,30 @@ import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { Header } from '@/components/Header';
 
-const Login = () => {
+const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const { toast } = useToast();
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (password !== confirmPassword) {
+      toast({
+        title: "Passwords don't match",
+        description: "Please make sure your passwords match.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     // This would normally connect to an authentication service
-    console.log('Login attempt with:', { email, password });
+    console.log('Signup attempt with:', { name, email, password });
     toast({
-      title: "Login Attempted",
+      title: "Signup Attempted",
       description: "This is a demo. Authentication is not implemented yet.",
     });
   };
@@ -32,11 +44,24 @@ const Login = () => {
           <div className="mb-12">
             <h1 className="text-4xl font-bold tracking-wider">WIINTA</h1>
             <p className="mt-6 text-lg text-white/80">
-              Today is a new day. It's your day. You shape it.
+              Join us today and start your journey with Wiinta.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6 max-w-md">
+            <div className="space-y-2">
+              <label htmlFor="name" className="block text-sm">Full Name</label>
+              <Input
+                id="name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Jane Doe"
+                className="bg-white/5 border-white/10 text-white placeholder:text-white/40"
+                required
+              />
+            </div>
+            
             <div className="space-y-2">
               <label htmlFor="email" className="block text-sm">Email</label>
               <Input
@@ -62,18 +87,25 @@ const Login = () => {
                 required
               />
             </div>
-
-            <div className="flex justify-end">
-              <Link to="#" className="text-sm text-white/60 hover:text-white">
-                Forgot Password?
-              </Link>
+            
+            <div className="space-y-2">
+              <label htmlFor="confirmPassword" className="block text-sm">Confirm Password</label>
+              <Input
+                id="confirmPassword"
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Confirm your password"
+                className="bg-white/5 border-white/10 text-white placeholder:text-white/40"
+                required
+              />
             </div>
 
             <Button
               type="submit"
               className="w-full bg-white text-black hover:bg-white/90 transition-colors"
             >
-              Sign in
+              Sign up
             </Button>
 
             <div className="flex items-center gap-4 py-2 text-white/60">
@@ -83,9 +115,9 @@ const Login = () => {
             </div>
 
             <div className="text-center text-sm text-white/80">
-              Don't you have an account?{" "}
-              <Link to="/signup" className="text-white hover:underline">
-                Sign up
+              Already have an account?{" "}
+              <Link to="/login" className="text-white hover:underline">
+                Sign in
               </Link>
             </div>
           </form>
@@ -104,4 +136,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
