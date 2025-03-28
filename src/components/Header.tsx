@@ -110,7 +110,7 @@ export function Header({ className, ...props }: HeaderProps) {
             >
               Try Wiinta
             </Link>
-            <ThemeToggle />
+            {/* ThemeToggle is moved to a fixed position for mobile */}
           </>
         ) : (
           <>
