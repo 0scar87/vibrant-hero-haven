@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -110,7 +109,6 @@ export function Header({ className, ...props }: HeaderProps) {
             >
               Try Wiinta
             </Link>
-            {/* ThemeToggle is moved to a fixed position for mobile */}
           </>
         ) : (
           <>

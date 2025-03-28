@@ -25,17 +25,17 @@ export function ThemeToggle() {
     );
   }
   
-  // For mobile, render sticky button at bottom left
+  // For mobile, render sticky button at bottom left with enhanced visibility
   return (
     <button
       onClick={toggleTheme}
-      className="fixed bottom-6 left-6 z-50 p-3 rounded-full bg-black/10 dark:bg-white/10 backdrop-blur-md shadow-md hover:bg-black/20 dark:hover:bg-white/20 transition-all border border-black/10 dark:border-white/10"
+      className="fixed bottom-6 left-6 z-50 p-3 rounded-full bg-black/20 dark:bg-white/20 backdrop-blur-md shadow-lg hover:bg-black/30 dark:hover:bg-white/30 transition-all border border-black/20 dark:border-white/20"
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? (
-        <Sun className="h-5 w-5 text-white" />
+        <Sun className="h-6 w-6 text-white" />
       ) : (
-        <Moon className="h-5 w-5 text-black" />
+        <Moon className="h-6 w-6 text-black" />
       )}
     </button>
   );
