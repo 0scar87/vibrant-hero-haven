@@ -11,7 +11,7 @@ export function TrendingTopics() {
         {topics.map((topic) => (
           <button
             key={topic}
-            className="topic-button"
+            className="px-4 py-2 rounded-full text-sm bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/10 transition-all"
           >
             {topic}
           </button>
