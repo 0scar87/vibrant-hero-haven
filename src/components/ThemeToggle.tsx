@@ -25,12 +25,13 @@ export function ThemeToggle() {
     );
   }
   
-  // For mobile, render sticky button at bottom left with enhanced visibility
+  // For mobile, render fixed button at bottom left with enhanced visibility
   return (
     <button
       onClick={toggleTheme}
-      className="fixed bottom-6 left-6 z-50 p-4 rounded-full bg-blue-500/90 dark:bg-amber-500/90 backdrop-blur-md shadow-lg hover:bg-blue-600 dark:hover:bg-amber-600 transition-all border-2 border-white/30 dark:border-black/30 animate-pulse-subtle"
+      className="fixed bottom-6 left-6 z-[1000] p-4 rounded-full bg-blue-500/90 dark:bg-amber-500/90 backdrop-blur-md shadow-lg hover:bg-blue-600 dark:hover:bg-amber-600 transition-all border-2 border-white/30 dark:border-black/30 animate-pulse-subtle"
       aria-label="Toggle theme"
+      style={{ position: 'fixed', bottom: '24px', left: '24px' }}
     >
       {theme === 'dark' ? (
         <Sun className="h-7 w-7 text-white drop-shadow-md" />
