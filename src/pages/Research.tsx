@@ -4,7 +4,7 @@ import { Header } from '@/components/Header';
 import { useTheme } from '@/components/ThemeProvider';
 import { Separator } from '@/components/ui/separator';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Brain, Heart, Lightbulb, Microscope, Users, Book, Cloud, ChartLine } from 'lucide-react';
 
 const Research = () => {
   const { theme } = useTheme();
@@ -38,13 +38,16 @@ const Research = () => {
         
         {/* Research Topics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {/* Topic 1 - Existing */}
           <div className={`col-span-1 p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-black/5 border border-black/10'}`}>
             <img 
               src="https://images.unsplash.com/photo-1494368308039-ed3393ead79c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
               alt="Cognitive Behavioral Therapy" 
               className="w-full h-48 object-cover rounded-lg mb-4"
             />
-            <h3 className="text-xl font-semibold mb-2">Cognitive Behavioral Therapy</h3>
+            <h3 className="text-xl font-semibold mb-2 flex items-center">
+              <Brain className="mr-2 h-5 w-5" /> Cognitive Behavioral Therapy
+            </h3>
             <p className={`mb-4 ${theme === 'dark' ? 'text-white/70' : 'text-black/70'}`}>
               Exploring new frontiers in CBT applications for anxiety disorders and depression.
             </p>
@@ -53,13 +56,16 @@ const Research = () => {
             </Link>
           </div>
           
+          {/* Topic 2 - Existing */}
           <div className={`col-span-1 md:col-span-2 p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-black/5 border border-black/10'}`}>
             <img 
               src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
               alt="Neuroimaging Studies" 
               className="w-full h-48 object-cover rounded-lg mb-4"
             />
-            <h3 className="text-xl font-semibold mb-2">Neuroimaging Studies on Mental Health</h3>
+            <h3 className="text-xl font-semibold mb-2 flex items-center">
+              <Microscope className="mr-2 h-5 w-5" /> Neuroimaging Studies on Mental Health
+            </h3>
             <p className={`mb-4 ${theme === 'dark' ? 'text-white/70' : 'text-black/70'}`}>
               Our comprehensive review of recent advancements in neuroimaging techniques for understanding mental health disorders and developing targeted treatments.
             </p>
@@ -68,13 +74,16 @@ const Research = () => {
             </Link>
           </div>
           
+          {/* Topic 3 - Existing */}
           <div className={`col-span-1 md:col-span-2 p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-black/5 border border-black/10'}`}>
             <img 
               src="https://images.unsplash.com/photo-1513325646077-122a362d1393?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
               alt="Mindfulness Research" 
               className="w-full h-48 object-cover rounded-lg mb-4"
             />
-            <h3 className="text-xl font-semibold mb-2">The Science of Mindfulness</h3>
+            <h3 className="text-xl font-semibold mb-2 flex items-center">
+              <Heart className="mr-2 h-5 w-5" /> The Science of Mindfulness
+            </h3>
             <p className={`mb-4 ${theme === 'dark' ? 'text-white/70' : 'text-black/70'}`}>
               Evidence-based research on how mindfulness practices are transforming mental health treatment and prevention strategies.
             </p>
@@ -83,15 +92,162 @@ const Research = () => {
             </Link>
           </div>
           
+          {/* Topic 4 - Existing */}
           <div className={`col-span-1 p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-black/5 border border-black/10'}`}>
             <img 
               src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
               alt="Digital Therapeutics" 
               className="w-full h-48 object-cover rounded-lg mb-4"
             />
-            <h3 className="text-xl font-semibold mb-2">Digital Therapeutics</h3>
+            <h3 className="text-xl font-semibold mb-2 flex items-center">
+              <Cloud className="mr-2 h-5 w-5" /> Digital Therapeutics
+            </h3>
             <p className={`mb-4 ${theme === 'dark' ? 'text-white/70' : 'text-black/70'}`}>
               Next-generation mental health interventions delivered through technology.
+            </p>
+            <Link to="#" className={`flex items-center text-sm font-medium ${theme === 'dark' ? 'text-white hover:text-white/80' : 'text-black hover:text-black/80'}`}>
+              Read more <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </div>
+          
+          {/* Topic 5 - New */}
+          <div className={`col-span-1 p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-black/5 border border-black/10'}`}>
+            <img 
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              alt="Trauma-Informed Care" 
+              className="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <h3 className="text-xl font-semibold mb-2 flex items-center">
+              <Users className="mr-2 h-5 w-5" /> Trauma-Informed Care
+            </h3>
+            <p className={`mb-4 ${theme === 'dark' ? 'text-white/70' : 'text-black/70'}`}>
+              Developing comprehensive approaches to care that recognize the widespread impact of trauma.
+            </p>
+            <Link to="#" className={`flex items-center text-sm font-medium ${theme === 'dark' ? 'text-white hover:text-white/80' : 'text-black hover:text-black/80'}`}>
+              Read more <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </div>
+          
+          {/* Topic 6 - New */}
+          <div className={`col-span-1 md:col-span-2 p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-black/5 border border-black/10'}`}>
+            <img 
+              src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              alt="Nature and Mental Health" 
+              className="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <h3 className="text-xl font-semibold mb-2 flex items-center">
+              <Lightbulb className="mr-2 h-5 w-5" /> Nature and Mental Health
+            </h3>
+            <p className={`mb-4 ${theme === 'dark' ? 'text-white/70' : 'text-black/70'}`}>
+              Studying the therapeutic effects of nature exposure on depression, anxiety, and overall psychological well-being.
+            </p>
+            <Link to="#" className={`flex items-center text-sm font-medium ${theme === 'dark' ? 'text-white hover:text-white/80' : 'text-black hover:text-black/80'}`}>
+              Read more <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </div>
+          
+          {/* Topic 7 - New */}
+          <div className={`col-span-1 md:col-span-2 p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-black/5 border border-black/10'}`}>
+            <img 
+              src="https://images.unsplash.com/photo-1551847677-dc82d764e1eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              alt="Psychedelic Therapy" 
+              className="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <h3 className="text-xl font-semibold mb-2 flex items-center">
+              <ChartLine className="mr-2 h-5 w-5" /> Psychedelic-Assisted Therapy
+            </h3>
+            <p className={`mb-4 ${theme === 'dark' ? 'text-white/70' : 'text-black/70'}`}>
+              Examining the therapeutic potential of substances like psilocybin and MDMA for treatment-resistant mental health conditions.
+            </p>
+            <Link to="#" className={`flex items-center text-sm font-medium ${theme === 'dark' ? 'text-white hover:text-white/80' : 'text-black hover:text-black/80'}`}>
+              Read more <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </div>
+          
+          {/* Topic 8 - New */}
+          <div className={`col-span-1 p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-black/5 border border-black/10'}`}>
+            <img 
+              src="https://images.unsplash.com/photo-1517330112565-0b16ce3dd31d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              alt="Sleep Research" 
+              className="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <h3 className="text-xl font-semibold mb-2 flex items-center">
+              <Brain className="mr-2 h-5 w-5" /> Sleep and Mental Health
+            </h3>
+            <p className={`mb-4 ${theme === 'dark' ? 'text-white/70' : 'text-black/70'}`}>
+              Investigating the bidirectional relationship between sleep disorders and mental health conditions.
+            </p>
+            <Link to="#" className={`flex items-center text-sm font-medium ${theme === 'dark' ? 'text-white hover:text-white/80' : 'text-black hover:text-black/80'}`}>
+              Read more <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </div>
+          
+          {/* Topic 9 - New */}
+          <div className={`col-span-1 p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-black/5 border border-black/10'}`}>
+            <img 
+              src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              alt="Social Media Impact" 
+              className="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <h3 className="text-xl font-semibold mb-2 flex items-center">
+              <Cloud className="mr-2 h-5 w-5" /> Social Media and Mental Health
+            </h3>
+            <p className={`mb-4 ${theme === 'dark' ? 'text-white/70' : 'text-black/70'}`}>
+              Assessing the psychological impacts of social media use on adolescents and adults.
+            </p>
+            <Link to="#" className={`flex items-center text-sm font-medium ${theme === 'dark' ? 'text-white hover:text-white/80' : 'text-black hover:text-black/80'}`}>
+              Read more <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </div>
+          
+          {/* Topic 10 - New */}
+          <div className={`col-span-1 md:col-span-2 p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-black/5 border border-black/10'}`}>
+            <img 
+              src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              alt="Epigenetics" 
+              className="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <h3 className="text-xl font-semibold mb-2 flex items-center">
+              <Microscope className="mr-2 h-5 w-5" /> Epigenetics and Mental Health
+            </h3>
+            <p className={`mb-4 ${theme === 'dark' ? 'text-white/70' : 'text-black/70'}`}>
+              Understanding how environmental factors influence gene expression and impact mental health across generations.
+            </p>
+            <Link to="#" className={`flex items-center text-sm font-medium ${theme === 'dark' ? 'text-white hover:text-white/80' : 'text-black hover:text-black/80'}`}>
+              Read more <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </div>
+          
+          {/* Topic 11 - New */}
+          <div className={`col-span-1 p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-black/5 border border-black/10'}`}>
+            <img 
+              src="https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              alt="Group Therapy" 
+              className="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <h3 className="text-xl font-semibold mb-2 flex items-center">
+              <Users className="mr-2 h-5 w-5" /> Group Therapy Innovations
+            </h3>
+            <p className={`mb-4 ${theme === 'dark' ? 'text-white/70' : 'text-black/70'}`}>
+              New approaches to group therapy that enhance outcomes for various mental health conditions.
+            </p>
+            <Link to="#" className={`flex items-center text-sm font-medium ${theme === 'dark' ? 'text-white hover:text-white/80' : 'text-black hover:text-black/80'}`}>
+              Read more <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </div>
+          
+          {/* Topic 12 - New */}
+          <div className={`col-span-1 md:col-span-2 p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5 border border-white/10' : 'bg-black/5 border border-black/10'}`}>
+            <img 
+              src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              alt="Telehealth" 
+              className="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <h3 className="text-xl font-semibold mb-2 flex items-center">
+              <Book className="mr-2 h-5 w-5" /> Telehealth Mental Health Services
+            </h3>
+            <p className={`mb-4 ${theme === 'dark' ? 'text-white/70' : 'text-black/70'}`}>
+              Evaluating the efficacy, accessibility, and future of remote mental health care delivery systems.
             </p>
             <Link to="#" className={`flex items-center text-sm font-medium ${theme === 'dark' ? 'text-white hover:text-white/80' : 'text-black hover:text-black/80'}`}>
               Read more <ArrowRight className="ml-1 h-4 w-4" />
