@@ -29,13 +29,13 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="fixed bottom-6 left-6 z-50 p-3 rounded-full bg-black/20 dark:bg-white/20 backdrop-blur-md shadow-lg hover:bg-black/30 dark:hover:bg-white/30 transition-all border border-black/20 dark:border-white/20"
+      className="fixed bottom-6 left-6 z-50 p-4 rounded-full bg-blue-500/90 dark:bg-amber-500/90 backdrop-blur-md shadow-lg hover:bg-blue-600 dark:hover:bg-amber-600 transition-all border-2 border-white/30 dark:border-black/30 animate-pulse-subtle"
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? (
-        <Sun className="h-6 w-6 text-white" />
+        <Sun className="h-7 w-7 text-white drop-shadow-md" />
       ) : (
-        <Moon className="h-6 w-6 text-black" />
+        <Moon className="h-7 w-7 text-white drop-shadow-md" />
       )}
     </button>
   );
