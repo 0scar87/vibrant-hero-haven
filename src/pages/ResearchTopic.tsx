@@ -51,9 +51,9 @@ const ResearchTopic = () => {
         {/* Hero Section */}
         <div className="mb-16">
           <div className="flex items-center gap-2 mb-4">
-            {/* Fixed: Don't pass className directly to IconComponent */}
-            <div className={`${theme === 'dark' ? 'text-white/80' : 'text-black/80'}`}>
-              <IconComponent size={24} />
+            {/* Fixed: Render icon component without props in a styled div */}
+            <div className={`${theme === 'dark' ? 'text-white/80' : 'text-black/80'} w-6 h-6`}>
+              <IconComponent />
             </div>
             <h1 className="text-3xl md:text-5xl font-bold">{topic.title}</h1>
           </div>
@@ -107,9 +107,9 @@ const ResearchTopic = () => {
                       className="w-full h-40 object-cover rounded-lg mb-4"
                     />
                     <h3 className="text-xl font-semibold mb-2 flex items-center">
-                      {/* Fixed: Don't pass className directly to RelatedIcon */}
-                      <div className="mr-2">
-                        <RelatedIcon size={20} />
+                      {/* Fixed: Render related icon without props in a styled div */}
+                      <div className="mr-2 w-5 h-5">
+                        <RelatedIcon />
                       </div>
                       {relatedTopic.title}
                     </h3>
