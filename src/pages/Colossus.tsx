@@ -2,6 +2,7 @@ import React from 'react';
 import { Header } from "@/components/Header";
 import { ChevronDown } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 
 const Colossus = () => {
   return (
@@ -185,6 +186,97 @@ const Colossus = () => {
               <div className="flex items-baseline">
                 <span className="text-6xl font-medium mr-2">{'>'}1</span>
                 <span className="text-sm text-gray-500">Exabyte</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Fifth section - Latest Updates */}
+      <div className="min-h-screen bg-black py-20 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1 */}
+            <div className="flex flex-col space-y-4">
+              <div className="relative aspect-square overflow-hidden mb-4">
+                <div 
+                  className="w-full h-full bg-gradient-to-br from-red-600 via-red-500 to-yellow-500 flex items-center justify-center"
+                  style={{ backgroundSize: '200% 200%' }}
+                >
+                  <div className="bg-black px-4 py-2 text-white font-medium z-10">
+                    COLOSSUS 3
+                  </div>
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium">Colossus 3 Beta — The Age of Parallel Acceleration</h3>
+              <p className="text-gray-400 text-sm">
+                We are thrilled to unveil an early preview of Colossus 3, 
+                our most advanced compute cluster yet, blending superior 
+                acceleration with extensive parallel processing capabilities.
+              </p>
+              
+              <div className="flex items-center justify-between mt-6">
+                <span className="text-gray-500 text-sm">FEBRUARY 19, 2025</span>
+                <Button variant="outline" className="rounded-full border-white/20 hover:bg-white/10">
+                  READ
+                </Button>
+              </div>
+            </div>
+            
+            {/* Card 2 */}
+            <div className="flex flex-col space-y-4">
+              <div className="relative aspect-square overflow-hidden mb-4">
+                <div 
+                  className="w-full h-full bg-gradient-to-br from-blue-900 via-blue-600 to-blue-400 flex items-center justify-center"
+                  style={{ backgroundSize: '200% 200%' }}
+                >
+                  <div className="bg-black px-4 py-2 text-white font-medium z-10">
+                    SERIES C
+                  </div>
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium">Wiinta raises $6B Series C</h3>
+              <p className="text-gray-400 text-sm">
+                We are partnering with A16Z, Blackrock, Fidelity
+                Management & Research Company, Kingdom
+                Holdings, Lightspeed, MGX, Morgan Stanley, and others.
+              </p>
+              
+              <div className="flex items-center justify-between mt-6">
+                <span className="text-gray-500 text-sm">DECEMBER 23, 2024</span>
+                <Button variant="outline" className="rounded-full border-white/20 hover:bg-white/10">
+                  READ
+                </Button>
+              </div>
+            </div>
+            
+            {/* Card 3 */}
+            <div className="flex flex-col space-y-4">
+              <div className="relative aspect-square overflow-hidden mb-4">
+                <div 
+                  className="w-full h-full bg-gradient-to-br from-red-500 via-purple-500 to-yellow-500 flex items-center justify-center"
+                  style={{ backgroundSize: '200% 200%' }}
+                >
+                  <div className="bg-black px-4 py-2 text-white font-medium z-10">
+                    COLOSSUS FOR ALL
+                  </div>
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium">Bringing Colossus to Everyone</h3>
+              <p className="text-gray-400 text-sm">
+                Colossus is now faster, sharper, and has improved 
+                multilingual support. It is available to everyone on 
+                the x platform.
+              </p>
+              
+              <div className="flex items-center justify-between mt-6">
+                <span className="text-gray-500 text-sm">DECEMBER 12, 2024</span>
+                <Button variant="outline" className="rounded-full border-white/20 hover:bg-white/10">
+                  READ
+                </Button>
               </div>
             </div>
           </div>
