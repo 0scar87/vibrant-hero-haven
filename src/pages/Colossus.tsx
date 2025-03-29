@@ -184,7 +184,7 @@ const Colossus = () => {
             <div className="border border-gray-800 p-6">
               <p className="text-xs text-gray-500 uppercase mb-6">STORAGE CAPACITY</p>
               <div className="flex items-baseline">
-                <span className="text-6xl font-medium mr-2">>1</span>
+                <span className="text-6xl font-medium mr-2">{'>'}1</span>
                 <span className="text-sm text-gray-500">Exabyte</span>
               </div>
             </div>
