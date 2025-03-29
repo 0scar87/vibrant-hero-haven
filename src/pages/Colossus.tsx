@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Header } from "@/components/Header";
 import { ChevronDown } from "lucide-react";
@@ -134,7 +133,7 @@ const Colossus = () => {
         </div>
       </div>
       
-      {/* Fourth section - Unprecedented scale (from template) */}
+      {/* Fourth section - Unprecedented scale */}
       <div className="min-h-screen bg-black py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Two column layout */}
@@ -151,11 +150,11 @@ const Colossus = () => {
             </div>
           </div>
 
-          {/* Specs grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-24">
+          {/* Specs grid - updated to use lines instead of bordered containers */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-0 mt-24 border-t border-gray-800">
             {/* Spec 1 */}
-            <div className="border border-gray-800 p-6">
-              <p className="text-xs text-gray-500 uppercase mb-6">NUMBER OF GPUS</p>
+            <div className="py-12 px-6 border-b border-r border-gray-800 md:border-b-0">
+              <p className="text-xs text-gray-500 uppercase mb-12">NUMBER OF GPUS</p>
               <div className="flex items-baseline">
                 <span className="text-6xl font-medium mr-2">200K</span>
                 <span className="text-sm text-gray-500">GPUs</span>
@@ -163,8 +162,8 @@ const Colossus = () => {
             </div>
             
             {/* Spec 2 */}
-            <div className="border border-gray-800 p-6">
-              <p className="text-xs text-gray-500 uppercase mb-6">TOTAL MEMORY BANDWIDTH</p>
+            <div className="py-12 px-6 border-b border-r border-gray-800 md:border-b-0">
+              <p className="text-xs text-gray-500 uppercase mb-12">TOTAL MEMORY BANDWIDTH</p>
               <div className="flex items-baseline">
                 <span className="text-6xl font-medium mr-2">194</span>
                 <span className="text-sm text-gray-500">Petabytes/s</span>
@@ -172,8 +171,8 @@ const Colossus = () => {
             </div>
             
             {/* Spec 3 */}
-            <div className="border border-gray-800 p-6">
-              <p className="text-xs text-gray-500 uppercase mb-6">NETWORK BANDWIDTH PER SERVER</p>
+            <div className="py-12 px-6 border-b border-r border-gray-800 md:border-b-0">
+              <p className="text-xs text-gray-500 uppercase mb-12">NETWORK BANDWIDTH PER SERVER</p>
               <div className="flex items-baseline">
                 <span className="text-6xl font-medium mr-2">3.6</span>
                 <span className="text-sm text-gray-500">Terabits/s</span>
@@ -181,8 +180,8 @@ const Colossus = () => {
             </div>
             
             {/* Spec 4 */}
-            <div className="border border-gray-800 p-6">
-              <p className="text-xs text-gray-500 uppercase mb-6">STORAGE CAPACITY</p>
+            <div className="py-12 px-6 border-b border-gray-800 md:border-b-0 md:border-r-0">
+              <p className="text-xs text-gray-500 uppercase mb-12">STORAGE CAPACITY</p>
               <div className="flex items-baseline">
                 <span className="text-6xl font-medium mr-2">{'>'}1</span>
                 <span className="text-sm text-gray-500">Exabyte</span>
