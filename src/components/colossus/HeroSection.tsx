@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { ChevronDown } from "lucide-react";
 
 export const HeroSection = () => {
   return (
-    <div className="h-screen flex flex-col items-center justify-center relative px-4 md:px-0">
+    <div className="h-screen flex flex-col items-center justify-center relative px-4 md:px-0 animate-fade-in">
       <div className="w-full max-w-7xl mx-auto">
         <p className="text-gray-400 dark:text-gray-400 mb-10 md:mb-20 tracking-wider text-xs md:text-sm lg:text-base uppercase font-light text-center">
           [ OUR GIGAFACTORY OF COMPUTE ]

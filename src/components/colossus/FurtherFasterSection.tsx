@@ -1,9 +1,8 @@
-
 import React from 'react';
 
 export const FurtherFasterSection = () => {
   return (
-    <div className="min-h-screen bg-background dark:bg-black py-12 md:py-20 px-4 md:px-8">
+    <div className="min-h-screen bg-background dark:bg-black py-12 md:py-20 px-4 md:px-8 animate-fade-in-delay-1">
       <div className="max-w-7xl mx-auto">
         {/* Two column layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mb-12 md:mb-16">

@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const specs = [
@@ -10,7 +9,7 @@ const specs = [
 
 export const UnprecedentedScaleSection = () => {
   return (
-    <div className="min-h-screen bg-background dark:bg-black py-12 md:py-20 px-4 md:px-8">
+    <div className="min-h-screen bg-background dark:bg-black py-12 md:py-20 px-4 md:px-8 animate-fade-in-delay-2">
       <div className="max-w-7xl mx-auto">
         {/* Two column layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-12 md:mb-20">
