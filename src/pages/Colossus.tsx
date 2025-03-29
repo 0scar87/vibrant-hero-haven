@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Header } from "@/components/Header";
 import { ChevronDown } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 const Colossus = () => {
   return (
@@ -93,49 +93,32 @@ const Colossus = () => {
             </div>
           </div>
           
-          {/* Timeline section */}
+          {/* Updated Timeline section to match the template */}
           <div className="mt-24 relative">
-            {/* Timeline line */}
-            <div className="absolute top-0 left-0 w-full h-px bg-gray-800"></div>
-            
-            {/* Timeline markers with lines underneath */}
-            <div className="flex justify-between relative mb-16">
-              <div className="relative">
-                <div className="text-sm text-gray-400 absolute left-0 top-4">
-                  AUG 2024
-                </div>
-                <div className="absolute left-0 top-12 h-8 w-px bg-gray-700"></div>
-              </div>
-              
-              <div className="relative">
-                <div className="text-sm text-gray-400 absolute left-1/3 top-4">
-                  NOV 2024
-                </div>
-                <div className="absolute left-1/3 top-12 h-8 w-px bg-gray-700"></div>
-              </div>
-              
-              <div className="relative">
-                <div className="text-sm text-gray-400 absolute left-2/3 top-4">
-                  FEB 2025
-                </div>
-                <div className="absolute left-2/3 top-12 h-8 w-px bg-gray-700"></div>
-              </div>
+            {/* Timeline labels */}
+            <div className="flex justify-between text-xs text-gray-500 uppercase mb-6">
+              <div>AUG 2024</div>
+              <div>NOV 2024</div>
+              <div>FEB 2025</div>
             </div>
             
-            {/* Timeline dots */}
-            <div className="flex mt-16 relative">
-              {[...Array(10)].map((_, i) => (
-                <div key={i} className="h-1.5 w-1.5 rounded-full bg-gray-700 mr-10"></div>
-              ))}
-              
-              {/* Active dot */}
-              <div className="absolute left-2/3 -mt-1 h-4 w-4 rounded-full border-2 border-yellow-500 flex items-center justify-center">
-                <div className="h-2 w-2 rounded-full bg-yellow-500"></div>
+            {/* Timeline horizontal bar */}
+            <div className="w-full h-px bg-gray-800 relative">
+              {/* Timeline dots */}
+              <div className="absolute top-0 left-0 -translate-y-1.5 flex justify-between w-full">
+                {[...Array(9)].map((_, i) => (
+                  <div 
+                    key={i} 
+                    className={`h-3 w-3 rounded-full ${i === 8 ? 'border-2 border-yellow-500 p-0.5 bg-transparent' : 'bg-gray-600'}`}
+                  >
+                    {i === 8 && <div className="h-full w-full rounded-full bg-yellow-500"></div>}
+                  </div>
+                ))}
               </div>
             </div>
             
             {/* Current milestone */}
-            <div className="mt-24 ml-[66.7%]">
+            <div className="absolute right-0 mt-10">
               <div className="text-sm text-gray-400 mb-1">
                 17 FEB
               </div>
