@@ -11,6 +11,7 @@ import Company from "./pages/Company";
 import NotFound from "./pages/NotFound";
 import Research from "./pages/Research";
 import ResearchTopic from "./pages/ResearchTopic";
+import Sankara from "./pages/Sankara";
 import { ThemeProvider } from "./components/ThemeProvider";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/company" element={<Company />} />
             <Route path="/research" element={<Research />} />
             <Route path="/research/:topicId" element={<ResearchTopic />} />
+            <Route path="/sankara" element={<Sankara />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
