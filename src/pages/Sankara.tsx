@@ -15,7 +15,7 @@ const Sankara = () => {
   };
   
   return (
-    <div className={`min-h-screen ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <div className={`min-h-screen bg-background text-foreground`}>
       <Header />
       
       {/* Hero Section */}
@@ -41,6 +41,49 @@ const Sankara = () => {
             <span className="mb-2">Explore</span>
             <ArrowDown className="animate-bounce" />
           </button>
+        </div>
+      </section>
+      
+      {/* Grid Section with introduction cards */}
+      <section className="py-16 px-4 md:px-8 lg:px-12 bg-black text-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            {/* Card 1 */}
+            <div className="p-6 md:p-10">
+              <h2 className="text-3xl md:text-4xl font-medium mb-6">Introducing</h2>
+              <p className="text-base md:text-lg opacity-80">
+                Excepteur sint occaecat cupidatat non proident, sunt 
+                in culpa qui officia deserunt mollit anim id.
+              </p>
+            </div>
+            
+            {/* Card 2 */}
+            <div className="p-6 md:p-10">
+              <h2 className="text-3xl md:text-4xl font-medium mb-6">Introducing</h2>
+              <p className="text-base md:text-lg opacity-80">
+                Excepteur sint occaecat cupidatat non proident, sunt 
+                in culpa qui officia deserunt mollit anim id.
+              </p>
+            </div>
+            
+            {/* Card 3 */}
+            <div className="p-6 md:p-10">
+              <h2 className="text-3xl md:text-4xl font-medium mb-6">Introducing</h2>
+              <p className="text-base md:text-lg opacity-80">
+                Excepteur sint occaecat cupidatat non proident, sunt 
+                in culpa qui officia deserunt mollit anim id.
+              </p>
+            </div>
+            
+            {/* Card 4 */}
+            <div className="p-6 md:p-10">
+              <h2 className="text-3xl md:text-4xl font-medium mb-6">Introducing</h2>
+              <p className="text-base md:text-lg opacity-80">
+                Excepteur sint occaecat cupidatat non proident, sunt 
+                in culpa qui officia deserunt mollit anim id.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
       
@@ -101,15 +144,15 @@ const Sankara = () => {
       </section>
       
       {/* Footer */}
-      <footer className={`py-6 px-4 text-center text-xs sm:text-sm ${theme === 'dark' ? 'text-white/60 border-white/10' : 'text-black/60 border-black/10'} border-t`}>
+      <footer className="py-6 px-4 text-center text-xs sm:text-sm border-t border-black/10 dark:border-white/10 text-black/60 dark:text-white/60">
         <div className="flex flex-col sm:flex-row justify-center items-center flex-wrap gap-2 sm:gap-4">
           <span>Metacophen Inc © 2025</span>
           <span className="hidden sm:inline">|</span>
-          <a href="#" className={`${theme === 'dark' ? 'hover:text-white' : 'hover:text-black'} transition-colors`}>Privacy & Legal</a>
+          <a href="#" className="hover:text-black dark:hover:text-white transition-colors">Privacy & Legal</a>
           <span className="hidden sm:inline">|</span>
-          <a href="#" className={`${theme === 'dark' ? 'hover:text-white' : 'hover:text-black'} transition-colors`}>Terms of Use</a>
+          <a href="#" className="hover:text-black dark:hover:text-white transition-colors">Terms of Use</a>
           <span className="hidden sm:inline">|</span>
-          <a href="#" className={`${theme === 'dark' ? 'hover:text-white' : 'hover:text-black'} transition-colors`}>Visit us on X</a>
+          <a href="#" className="hover:text-black dark:hover:text-white transition-colors">Visit us on X</a>
         </div>
       </footer>
     </div>
