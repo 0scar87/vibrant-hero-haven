@@ -10,18 +10,18 @@ const Colossus = () => {
   const isMobile = useIsMobile();
   
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col">
+    <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header className="absolute top-0 left-0 right-0 z-50" />
       
       {/* First section - Hero */}
       <div className="h-screen flex flex-col items-center justify-center relative px-4 md:px-0">
         <div className="w-full max-w-7xl mx-auto">
-          <p className="text-gray-400 mb-10 md:mb-20 tracking-wider text-xs md:text-sm lg:text-base uppercase font-light text-center">
+          <p className="text-gray-400 dark:text-gray-400 mb-10 md:mb-20 tracking-wider text-xs md:text-sm lg:text-base uppercase font-light text-center">
             [ OUR GIGAFACTORY OF COMPUTE ]
           </p>
           
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold tracking-tight mb-12 md:mb-20 text-center">
-            <span className="bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600 bg-clip-text text-transparent" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.1)' }}>
+            <span className="bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-200 dark:via-gray-400 dark:to-gray-600 bg-clip-text text-transparent" style={{ WebkitTextStroke: '1px rgba(0,0,0,0.1) dark:rgba(255,255,255,0.1)' }}>
               COLOSSUS
             </span>
           </h1>
@@ -41,7 +41,7 @@ const Colossus = () => {
       </div>
       
       {/* Second section - We go further, faster */}
-      <div className="min-h-screen bg-black py-12 md:py-20 px-4 md:px-8">
+      <div className="min-h-screen bg-background dark:bg-black py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Two column layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mb-12 md:mb-16">
@@ -82,7 +82,7 @@ const Colossus = () => {
       </div>
       
       {/* Third section - Our path of progress */}
-      <div className="min-h-screen bg-black py-12 md:py-20 px-4 md:px-8">
+      <div className="min-h-screen bg-background dark:bg-black py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-12 md:mb-20">
             <div>
@@ -108,7 +108,7 @@ const Colossus = () => {
             </div>
             
             {/* Timeline horizontal bar */}
-            <div className="w-full h-px bg-gray-800 relative">
+            <div className="w-full h-px bg-gray-300 dark:bg-gray-800 relative">
               {/* Timeline dots */}
               <div className="absolute top-0 left-0 -translate-y-1.5 flex justify-between w-full">
                 {[...Array(isMobile ? 3 : 9)].map((_, i) => (
@@ -117,7 +117,7 @@ const Colossus = () => {
                     className={`h-3 w-3 rounded-full ${
                       (isMobile && i === 2) || (!isMobile && i === 8) 
                         ? 'border-2 border-yellow-500 p-0.5 bg-transparent' 
-                        : 'bg-gray-600'
+                        : 'bg-gray-400 dark:bg-gray-600'
                     }`}
                   >
                     {((isMobile && i === 2) || (!isMobile && i === 8)) && 
@@ -130,13 +130,13 @@ const Colossus = () => {
             
             {/* Current milestone */}
             <div className="absolute right-0 mt-8 md:mt-10">
-              <div className="text-xs sm:text-sm text-gray-400 mb-1">
+              <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1">
                 17 FEB
               </div>
               <h3 className="text-lg md:text-xl font-medium mb-2 md:mb-4">
                 Today
               </h3>
-              <p className="text-sm md:text-base text-gray-300 max-w-[200px] md:max-w-none">
+              <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 max-w-[200px] md:max-w-none">
                 Running jobs with 80k+ GPUs and 99% uptime
               </p>
             </div>
@@ -145,7 +145,7 @@ const Colossus = () => {
       </div>
       
       {/* Fourth section - Unprecedented scale */}
-      <div className="min-h-screen bg-black py-12 md:py-20 px-4 md:px-8">
+      <div className="min-h-screen bg-background dark:bg-black py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Two column layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-12 md:mb-20">
@@ -162,9 +162,9 @@ const Colossus = () => {
           </div>
 
           {/* Specs grid - updated to use lines instead of bordered containers */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0 mt-16 md:mt-24 border-t border-gray-800">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0 mt-16 md:mt-24 border-t border-gray-300 dark:border-gray-800">
             {/* Spec 1 */}
-            <div className="py-8 md:py-12 px-4 md:px-6 border-b border-r border-gray-800 md:border-b-0">
+            <div className="py-8 md:py-12 px-4 md:px-6 border-b border-r border-gray-300 dark:border-gray-800 md:border-b-0">
               <p className="text-xs text-gray-500 uppercase mb-6 md:mb-12">NUMBER OF GPUS</p>
               <div className="flex items-baseline">
                 <span className="text-4xl md:text-5xl lg:text-6xl font-medium mr-2">200K</span>
@@ -173,7 +173,7 @@ const Colossus = () => {
             </div>
             
             {/* Spec 2 */}
-            <div className="py-8 md:py-12 px-4 md:px-6 border-b border-r border-gray-800 md:border-b-0">
+            <div className="py-8 md:py-12 px-4 md:px-6 border-b border-r border-gray-300 dark:border-gray-800 md:border-b-0">
               <p className="text-xs text-gray-500 uppercase mb-6 md:mb-12">TOTAL MEMORY BANDWIDTH</p>
               <div className="flex items-baseline">
                 <span className="text-4xl md:text-5xl lg:text-6xl font-medium mr-2">194</span>
@@ -182,7 +182,7 @@ const Colossus = () => {
             </div>
             
             {/* Spec 3 */}
-            <div className="py-8 md:py-12 px-4 md:px-6 border-b border-r border-gray-800 md:border-b-0">
+            <div className="py-8 md:py-12 px-4 md:px-6 border-b border-r border-gray-300 dark:border-gray-800 md:border-b-0">
               <p className="text-xs text-gray-500 uppercase mb-6 md:mb-12">NETWORK BANDWIDTH PER SERVER</p>
               <div className="flex items-baseline">
                 <span className="text-4xl md:text-5xl lg:text-6xl font-medium mr-2">3.6</span>
@@ -191,7 +191,7 @@ const Colossus = () => {
             </div>
             
             {/* Spec 4 */}
-            <div className="py-8 md:py-12 px-4 md:px-6 border-b border-gray-800 md:border-b-0 md:border-r-0">
+            <div className="py-8 md:py-12 px-4 md:px-6 border-b border-gray-300 dark:border-gray-800 md:border-b-0 md:border-r-0">
               <p className="text-xs text-gray-500 uppercase mb-6 md:mb-12">STORAGE CAPACITY</p>
               <div className="flex items-baseline">
                 <span className="text-4xl md:text-5xl lg:text-6xl font-medium mr-2">{'>'}1</span>
@@ -203,7 +203,7 @@ const Colossus = () => {
       </div>
       
       {/* Fifth section - Latest Updates */}
-      <div className="min-h-screen bg-black py-12 md:py-20 px-4 md:px-8">
+      <div className="min-h-screen bg-background dark:bg-black py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-6">
             {/* Card 1 */}
@@ -220,7 +220,7 @@ const Colossus = () => {
               </div>
               
               <h3 className="text-lg md:text-xl font-medium">Colossus 3 Beta — The Age of Parallel Acceleration</h3>
-              <p className="text-xs md:text-sm text-gray-400">
+              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
                 We are thrilled to unveil an early preview of Colossus 3, 
                 our most advanced compute cluster yet, blending superior 
                 acceleration with extensive parallel processing capabilities.
@@ -228,7 +228,7 @@ const Colossus = () => {
               
               <div className="flex items-center justify-between mt-4 md:mt-6">
                 <span className="text-xs md:text-sm text-gray-500">FEBRUARY 19, 2025</span>
-                <Button variant="outline" size={isMobile ? "sm" : "default"} className="rounded-full border-white/20 hover:bg-white/10">
+                <Button variant="outline" size={isMobile ? "sm" : "default"} className="rounded-full border-black/20 dark:border-white/20 hover:bg-black/10 dark:hover:bg-white/10">
                   READ
                 </Button>
               </div>
@@ -248,7 +248,7 @@ const Colossus = () => {
               </div>
               
               <h3 className="text-lg md:text-xl font-medium">Wiinta raises $6B Series C</h3>
-              <p className="text-xs md:text-sm text-gray-400">
+              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
                 We are partnering with A16Z, Blackrock, Fidelity
                 Management & Research Company, Kingdom
                 Holdings, Lightspeed, MGX, Morgan Stanley, and others.
@@ -256,7 +256,7 @@ const Colossus = () => {
               
               <div className="flex items-center justify-between mt-4 md:mt-6">
                 <span className="text-xs md:text-sm text-gray-500">DECEMBER 23, 2024</span>
-                <Button variant="outline" size={isMobile ? "sm" : "default"} className="rounded-full border-white/20 hover:bg-white/10">
+                <Button variant="outline" size={isMobile ? "sm" : "default"} className="rounded-full border-black/20 dark:border-white/20 hover:bg-black/10 dark:hover:bg-white/10">
                   READ
                 </Button>
               </div>
@@ -276,7 +276,7 @@ const Colossus = () => {
               </div>
               
               <h3 className="text-lg md:text-xl font-medium">Bringing Colossus to Everyone</h3>
-              <p className="text-xs md:text-sm text-gray-400">
+              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
                 Colossus is now faster, sharper, and has improved 
                 multilingual support. It is available to everyone on 
                 the x platform.
@@ -284,7 +284,7 @@ const Colossus = () => {
               
               <div className="flex items-center justify-between mt-4 md:mt-6">
                 <span className="text-xs md:text-sm text-gray-500">DECEMBER 12, 2024</span>
-                <Button variant="outline" size={isMobile ? "sm" : "default"} className="rounded-full border-white/20 hover:bg-white/10">
+                <Button variant="outline" size={isMobile ? "sm" : "default"} className="rounded-full border-black/20 dark:border-white/20 hover:bg-black/10 dark:hover:bg-white/10">
                   READ
                 </Button>
               </div>
