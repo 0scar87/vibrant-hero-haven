@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Header } from "@/components/Header";
 import { ChevronDown } from "lucide-react";
@@ -133,47 +134,58 @@ const Colossus = () => {
         </div>
       </div>
       
-      {/* Fourth section - Latest news */}
+      {/* Fourth section - Unprecedented scale (from template) */}
       <div className="min-h-screen bg-black py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-medium tracking-tight">
-              Latest news
-            </h2>
-            <a href="#" className="border border-white/20 text-white px-6 py-2 rounded-full text-sm hover:bg-white/10 transition-colors">
-              VIEW ALL
-            </a>
+          {/* Two column layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20">
+            <div>
+              <h2 className="text-5xl md:text-6xl font-medium tracking-tight">
+                Unprecedented scale
+              </h2>
+            </div>
+            <div>
+              <p className="text-base md:text-lg leading-relaxed">
+                We doubled our compute at an unprecedented rate, with a roadmap to 1M GPUs. Progress in AI is driven by compute and no one has come close to building at this magnitude and speed.
+              </p>
+            </div>
           </div>
-          
-          {/* News cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* News Card 1 */}
-            <div className="border border-white/10 rounded-lg overflow-hidden">
-              <div className="aspect-video bg-gradient-to-r from-red-900 to-red-600"></div>
-              <div className="p-6">
-                <h3 className="text-xl font-medium mb-4">Colossus reaches 99% uptime</h3>
-                <p className="text-gray-400 mb-4">Our engineering team achieved a major milestone in supercomputer reliability.</p>
-                <a href="#" className="text-sm text-white/70 hover:text-white">Read more →</a>
+
+          {/* Specs grid */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-24">
+            {/* Spec 1 */}
+            <div className="border border-gray-800 p-6">
+              <p className="text-xs text-gray-500 uppercase mb-6">NUMBER OF GPUS</p>
+              <div className="flex items-baseline">
+                <span className="text-6xl font-medium mr-2">200K</span>
+                <span className="text-sm text-gray-500">GPUs</span>
               </div>
             </div>
             
-            {/* News Card 2 */}
-            <div className="border border-white/10 rounded-lg overflow-hidden">
-              <div className="aspect-video bg-gradient-to-r from-blue-900 to-blue-600"></div>
-              <div className="p-6">
-                <h3 className="text-xl font-medium mb-4">80,000 GPU milestone</h3>
-                <p className="text-gray-400 mb-4">We've scaled our infrastructure to support the next generation of AI models.</p>
-                <a href="#" className="text-sm text-white/70 hover:text-white">Read more →</a>
+            {/* Spec 2 */}
+            <div className="border border-gray-800 p-6">
+              <p className="text-xs text-gray-500 uppercase mb-6">TOTAL MEMORY BANDWIDTH</p>
+              <div className="flex items-baseline">
+                <span className="text-6xl font-medium mr-2">194</span>
+                <span className="text-sm text-gray-500">Petabytes/s</span>
               </div>
             </div>
             
-            {/* News Card 3 */}
-            <div className="border border-white/10 rounded-lg overflow-hidden">
-              <div className="aspect-video bg-gradient-to-r from-purple-900 via-pink-700 to-orange-600"></div>
-              <div className="p-6">
-                <h3 className="text-xl font-medium mb-4">Expanding our datacenter</h3>
-                <p className="text-gray-400 mb-4">Construction begins on a new facility to house our growing computational resources.</p>
-                <a href="#" className="text-sm text-white/70 hover:text-white">Read more →</a>
+            {/* Spec 3 */}
+            <div className="border border-gray-800 p-6">
+              <p className="text-xs text-gray-500 uppercase mb-6">NETWORK BANDWIDTH PER SERVER</p>
+              <div className="flex items-baseline">
+                <span className="text-6xl font-medium mr-2">3.6</span>
+                <span className="text-sm text-gray-500">Terabits/s</span>
+              </div>
+            </div>
+            
+            {/* Spec 4 */}
+            <div className="border border-gray-800 p-6">
+              <p className="text-xs text-gray-500 uppercase mb-6">STORAGE CAPACITY</p>
+              <div className="flex items-baseline">
+                <span className="text-6xl font-medium mr-2">>1</span>
+                <span className="text-sm text-gray-500">Exabyte</span>
               </div>
             </div>
           </div>
