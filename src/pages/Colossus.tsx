@@ -98,16 +98,27 @@ const Colossus = () => {
             {/* Timeline line */}
             <div className="absolute top-0 left-0 w-full h-px bg-gray-800"></div>
             
-            {/* Timeline markers */}
+            {/* Timeline markers with lines underneath */}
             <div className="flex justify-between relative mb-16">
-              <div className="text-sm text-gray-400 absolute left-0 top-4">
-                AUG 2024
+              <div className="relative">
+                <div className="text-sm text-gray-400 absolute left-0 top-4">
+                  AUG 2024
+                </div>
+                <div className="absolute left-0 top-12 h-8 w-px bg-gray-700"></div>
               </div>
-              <div className="text-sm text-gray-400 absolute left-1/3 top-4">
-                NOV 2024
+              
+              <div className="relative">
+                <div className="text-sm text-gray-400 absolute left-1/3 top-4">
+                  NOV 2024
+                </div>
+                <div className="absolute left-1/3 top-12 h-8 w-px bg-gray-700"></div>
               </div>
-              <div className="text-sm text-gray-400 absolute left-2/3 top-4">
-                FEB 2025
+              
+              <div className="relative">
+                <div className="text-sm text-gray-400 absolute left-2/3 top-4">
+                  FEB 2025
+                </div>
+                <div className="absolute left-2/3 top-12 h-8 w-px bg-gray-700"></div>
               </div>
             </div>
             
