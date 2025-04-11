@@ -22,7 +22,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     // Set up the auth state listener first
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
-        console.log('Auth state changed:', event, session?.user?.email);
+        console.log('👉 Auth state changed:', event, session?.user?.email || 'No user');
+        
+        if (event === 'SIGNED_IN') {
+          console.log('✅ User signed in successfully:', session?.user?.email);
+        } else if (event === 'SIGNED_OUT') {
+          console.log('🚪 User signed out successfully');
+        }
+        
         setSession(session);
         setUser(session?.user ?? null);
         setLoading(false);
@@ -34,6 +41,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
+      
+      if (session?.user) {
+        console.log('📝 Existing session found for user:', session.user.email);
+      } else {
+        console.log('📝 No existing session found');
+      }
     });
 
     return () => {
@@ -42,7 +55,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const signOut = async () => {
-    console.log('Signing out user:', user?.email);
+    console.log('🔐 Attempting to sign out user:', user?.email || 'No user');
     try {
       // Clear local state first
       setUser(null);
@@ -52,13 +65,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       const { error } = await supabase.auth.signOut();
       
       if (error) {
-        console.error('Error signing out from Supabase:', error);
+        console.error('❌ Error signing out from Supabase:', error);
         // Even if there's an error with Supabase, we've already cleared the local state
       } else {
-        console.log('Sign out successful');
+        console.log('✅ Sign out successful from Supabase');
       }
     } catch (error) {
-      console.error('Error in signOut function:', error);
+      console.error('❌ Exception in signOut function:', error);
       // Even if there's an exception, we've already cleared the local state
     }
   };

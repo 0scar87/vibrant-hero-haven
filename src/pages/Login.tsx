@@ -21,6 +21,7 @@ const Login = () => {
     const checkSession = async () => {
       const { data } = await supabase.auth.getSession();
       if (data.session) {
+        console.log('🔄 User already logged in, redirecting to home');
         navigate('/');
       }
     };
@@ -32,6 +33,7 @@ const Login = () => {
     e.preventDefault();
     
     if (!email || !password) {
+      console.log('❌ Login attempt failed: Missing email or password');
       toast({
         title: "Error",
         description: "Please enter both email and password.",
@@ -42,6 +44,7 @@ const Login = () => {
     
     try {
       setLoading(true);
+      console.log('🔐 Attempting to sign in user:', email);
       
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
@@ -49,10 +52,12 @@ const Login = () => {
       });
       
       if (error) {
+        console.error('❌ Login failed:', error.message);
         throw error;
       }
       
       if (data.user) {
+        console.log('✅ Login successful for user:', data.user.email);
         toast({
           title: "Success",
           description: "You have been logged in successfully.",
@@ -60,6 +65,7 @@ const Login = () => {
         navigate('/');
       }
     } catch (error: any) {
+      console.error('❌ Login error:', error.message);
       toast({
         title: "Login failed",
         description: error.message || "An error occurred during login.",
