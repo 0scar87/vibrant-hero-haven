@@ -3,6 +3,7 @@ import React from 'react';
 import { Header } from '@/components/Header';
 import { useTheme } from '@/components/ThemeProvider';
 import { ArrowDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Sankara = () => {
   const { theme } = useTheme();
@@ -15,7 +16,7 @@ const Sankara = () => {
   };
   
   return (
-    <div className={`min-h-screen bg-background text-foreground`}>
+    <div className={`min-h-screen bg-black text-white`}>
       <Header />
       
       {/* Hero Section */}
@@ -53,45 +54,55 @@ const Sankara = () => {
         </div>
       </section>
       
-      {/* Grid Section with introduction cards */}
-      <section className="py-16 px-4 md:px-8 lg:px-12 bg-black text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {/* Card 1 */}
-            <div className="p-6 md:p-10">
-              <h2 className="text-3xl md:text-4xl font-medium mb-6">Introducing</h2>
-              <p className="text-base md:text-lg opacity-80">
-                Excepteur sint occaecat cupidatat non proident, sunt 
-                in culpa qui officia deserunt mollit anim id.
-              </p>
-            </div>
-            
-            {/* Card 2 */}
-            <div className="p-6 md:p-10">
-              <h2 className="text-3xl md:text-4xl font-medium mb-6">Introducing</h2>
-              <p className="text-base md:text-lg opacity-80">
-                Excepteur sint occaecat cupidatat non proident, sunt 
-                in culpa qui officia deserunt mollit anim id.
-              </p>
-            </div>
-            
-            {/* Card 3 */}
-            <div className="p-6 md:p-10">
-              <h2 className="text-3xl md:text-4xl font-medium mb-6">Introducing</h2>
-              <p className="text-base md:text-lg opacity-80">
-                Excepteur sint occaecat cupidatat non proident, sunt 
-                in culpa qui officia deserunt mollit anim id.
-              </p>
-            </div>
-            
-            {/* Card 4 */}
-            <div className="p-6 md:p-10">
-              <h2 className="text-3xl md:text-4xl font-medium mb-6">Introducing</h2>
-              <p className="text-base md:text-lg opacity-80">
-                Excepteur sint occaecat cupidatat non proident, sunt 
-                in culpa qui officia deserunt mollit anim id.
-              </p>
-            </div>
+      {/* Features Grid Section based on the new template */}
+      <section className="py-20 px-6 md:px-16 lg:px-24 bg-black text-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20 max-w-7xl mx-auto">
+          {/* Feature 1 */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Redefining Mental Health Diagnostics</h2>
+            <p className="text-base md:text-lg text-white/80 leading-relaxed">
+              Sankara represents a paradigm shift in mental health
+              diagnostics, combining cutting-edge AI technology
+              with compassionate human-centered design. Our
+              vision is to make accurate mental health assessments
+              accessible to everyone, everywhere.
+            </p>
+          </div>
+          
+          {/* Feature 2 */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">AI-Powered Precision</h2>
+            <p className="text-base md:text-lg text-white/80 leading-relaxed">
+              Our revolutionary diagnostic platform harnesses the
+              power of artificial intelligence to detect and analyze
+              patterns associated with over 400 recognized mental
+              health conditions, providing unprecedented accuracy
+              in assessment and guidance.
+            </p>
+          </div>
+          
+          {/* Feature 3 */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ethical Learning, Absolute Privacy</h2>
+            <p className="text-base md:text-lg text-white/80 leading-relaxed">
+              Built on a foundation of anonymized data ethically
+              collected through our free therapeutic assistant Wiinta,
+              Sankara learns continuously to improve its diagnostic
+              capabilities while maintaining absolute privacy and
+              security for all users.
+            </p>
+          </div>
+          
+          {/* Feature 4 */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Healthcare Equality</h2>
+            <p className="text-base md:text-lg text-white/80 leading-relaxed">
+              Sankara aims to democratize mental healthcare by
+              removing financial barriers to professional-grade
+              diagnostics. We envision a world where early detection
+              and intervention become universal rights rather than
+              privileges.
+            </p>
           </div>
         </div>
       </section>
@@ -153,15 +164,15 @@ const Sankara = () => {
       </section>
       
       {/* Footer */}
-      <footer className="py-6 px-4 text-center text-xs sm:text-sm border-t border-black/10 dark:border-white/10 text-black/60 dark:text-white/60">
-        <div className="flex flex-col sm:flex-row justify-center items-center flex-wrap gap-2 sm:gap-4">
+      <footer className="py-6 px-6 md:px-16 lg:px-24 text-center text-sm border-t border-white/20 text-white/60">
+        <div className="flex flex-col sm:flex-row justify-center items-center flex-wrap gap-4">
           <span>Metacophen Inc © 2025</span>
           <span className="hidden sm:inline">|</span>
-          <a href="#" className="hover:text-black dark:hover:text-white transition-colors">Privacy & Legal</a>
+          <a href="#" className="hover:text-white transition-colors">Privacy & Legal</a>
           <span className="hidden sm:inline">|</span>
-          <a href="#" className="hover:text-black dark:hover:text-white transition-colors">Terms of Use</a>
+          <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
           <span className="hidden sm:inline">|</span>
-          <a href="#" className="hover:text-black dark:hover:text-white transition-colors">Visit us on X</a>
+          <a href="#" className="hover:text-white transition-colors">Visit us on X</a>
         </div>
       </footer>
     </div>
