@@ -13,6 +13,7 @@ import Research from "./pages/Research";
 import ResearchTopic from "./pages/ResearchTopic";
 import Sankara from "./pages/Sankara";
 import Colossus from "./pages/Colossus";
+import Profile from "./pages/Profile";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { AuthProvider } from "./components/AuthProvider";
 
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="/research/:topicId" element={<ResearchTopic />} />
               <Route path="/sankara" element={<Sankara />} />
               <Route path="/colossus" element={<Colossus />} />
+              <Route path="/profile" element={<Profile />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
