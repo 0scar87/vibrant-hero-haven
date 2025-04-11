@@ -14,6 +14,7 @@ import ResearchTopic from "./pages/ResearchTopic";
 import Sankara from "./pages/Sankara";
 import Colossus from "./pages/Colossus";
 import Profile from "./pages/Profile";
+import Chat from "./pages/Chat";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { AuthProvider } from "./components/AuthProvider";
 import { useAuth } from "./components/AuthProvider";
@@ -44,6 +45,7 @@ const AppRoutes = () => {
       <Route path="/research/:topicId" element={<ResearchTopic />} />
       <Route path="/sankara" element={<Sankara />} />
       <Route path="/colossus" element={<Colossus />} />
+      <Route path="/chat" element={<Chat />} />
       <Route path="/profile" element={
         <RequireAuth>
           <Profile />

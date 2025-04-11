@@ -1,14 +1,23 @@
 
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export function SearchBar() {
   const [query, setQuery] = useState('');
+  const navigate = useNavigate();
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Search query:', query);
-    // Handle search functionality here
+    
+    if (query.trim()) {
+      // Navigate to chat page with the query
+      navigate(`/chat?q=${encodeURIComponent(query)}`);
+    } else {
+      // Just navigate to chat page
+      navigate('/chat');
+    }
   };
   
   return (
