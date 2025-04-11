@@ -1,9 +1,11 @@
+
 import React from 'react';
 import { Header } from '@/components/Header';
 import { useTheme } from '@/components/ThemeProvider';
 import { ArrowDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 const Sankara = () => {
   const { theme } = useTheme();
@@ -16,7 +18,10 @@ const Sankara = () => {
   };
   
   return (
-    <div className={`min-h-screen bg-black text-white`}>
+    <div className={cn(
+      "min-h-screen",
+      theme === 'dark' ? "bg-black text-white" : "bg-white text-black"
+    )}>
       <Header />
       
       {/* Hero Section */}
@@ -27,7 +32,10 @@ const Sankara = () => {
             alt="Sankara Hero Background" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/60 dark:bg-black/70"></div>
+          <div className={cn(
+            "absolute inset-0",
+            theme === 'dark' ? "bg-black/60" : "bg-black/50"
+          )}></div>
         </div>
         
         <div className="text-center max-w-4xl mx-auto z-10 text-white">
@@ -55,12 +63,18 @@ const Sankara = () => {
       </section>
       
       {/* Features Grid Section based on the new template */}
-      <section className="py-20 px-6 md:px-16 lg:px-24 bg-black text-white">
+      <section className={cn(
+        "py-20 px-6 md:px-16 lg:px-24",
+        theme === 'dark' ? "bg-black text-white" : "bg-white text-black"
+      )}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20 max-w-7xl mx-auto">
           {/* Feature 1 */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Redefining Mental Health Diagnostics</h2>
-            <p className="text-base md:text-lg text-white/80 leading-relaxed">
+            <p className={cn(
+              "text-base md:text-lg leading-relaxed",
+              theme === 'dark' ? "text-white/80" : "text-black/80"
+            )}>
               Sankara represents a paradigm shift in mental health
               diagnostics, combining cutting-edge AI technology
               with compassionate human-centered design. Our
@@ -72,7 +86,10 @@ const Sankara = () => {
           {/* Feature 2 */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">AI-Powered Precision</h2>
-            <p className="text-base md:text-lg text-white/80 leading-relaxed">
+            <p className={cn(
+              "text-base md:text-lg leading-relaxed",
+              theme === 'dark' ? "text-white/80" : "text-black/80"
+            )}>
               Our revolutionary diagnostic platform harnesses the
               power of artificial intelligence to detect and analyze
               patterns associated with over 400 recognized mental
@@ -84,7 +101,10 @@ const Sankara = () => {
           {/* Feature 3 */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ethical Learning, Absolute Privacy</h2>
-            <p className="text-base md:text-lg text-white/80 leading-relaxed">
+            <p className={cn(
+              "text-base md:text-lg leading-relaxed",
+              theme === 'dark' ? "text-white/80" : "text-black/80"
+            )}>
               Built on a foundation of anonymized data ethically
               collected through our free therapeutic assistant Wiinta,
               Sankara learns continuously to improve its diagnostic
@@ -96,7 +116,10 @@ const Sankara = () => {
           {/* Feature 4 */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Healthcare Equality</h2>
-            <p className="text-base md:text-lg text-white/80 leading-relaxed">
+            <p className={cn(
+              "text-base md:text-lg leading-relaxed",
+              theme === 'dark' ? "text-white/80" : "text-black/80"
+            )}>
               Sankara aims to democratize mental healthcare by
               removing financial barriers to professional-grade
               diagnostics. We envision a world where early detection
@@ -108,7 +131,10 @@ const Sankara = () => {
       </section>
       
       {/* Content Section (to be scrolled to) */}
-      <section id="content" className="py-20 px-4 md:px-12 lg:px-24">
+      <section id="content" className={cn(
+        "py-20 px-4 md:px-12 lg:px-24",
+        theme === 'dark' ? "text-white" : "text-black"
+      )}>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">What is Sankara?</h2>
           
@@ -135,27 +161,42 @@ const Sankara = () => {
       </section>
       
       {/* Features Section */}
-      <section className="py-20 px-4 md:px-12 lg:px-24 bg-black/5 dark:bg-white/5">
+      <section className={cn(
+        "py-20 px-4 md:px-12 lg:px-24",
+        theme === 'dark' ? "bg-white/5" : "bg-black/5"
+      )}>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Key Features</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-6 rounded-xl bg-black/5 dark:bg-white/5">
+            <div className={cn(
+              "p-6 rounded-xl",
+              theme === 'dark' ? "bg-white/5" : "bg-black/5"
+            )}>
               <h3 className="text-xl font-bold mb-3">Adaptive Intelligence</h3>
               <p>Learns from your interactions to provide increasingly personalized support tailored to your unique needs.</p>
             </div>
             
-            <div className="p-6 rounded-xl bg-black/5 dark:bg-white/5">
+            <div className={cn(
+              "p-6 rounded-xl",
+              theme === 'dark' ? "bg-white/5" : "bg-black/5"
+            )}>
               <h3 className="text-xl font-bold mb-3">Emotional Recognition</h3>
               <p>Advanced algorithms that understand the nuances of human emotion through text and voice interactions.</p>
             </div>
             
-            <div className="p-6 rounded-xl bg-black/5 dark:bg-white/5">
+            <div className={cn(
+              "p-6 rounded-xl",
+              theme === 'dark' ? "bg-white/5" : "bg-black/5"
+            )}>
               <h3 className="text-xl font-bold mb-3">24/7 Availability</h3>
               <p>Always there when you need support, regardless of time or place.</p>
             </div>
             
-            <div className="p-6 rounded-xl bg-black/5 dark:bg-white/5">
+            <div className={cn(
+              "p-6 rounded-xl",
+              theme === 'dark' ? "bg-white/5" : "bg-black/5"
+            )}>
               <h3 className="text-xl font-bold mb-3">Evidence-Based Techniques</h3>
               <p>Incorporates proven therapeutic approaches backed by scientific research.</p>
             </div>
@@ -164,12 +205,18 @@ const Sankara = () => {
       </section>
       
       {/* New Section: Duplicate of the template shown in the image with 3 blocks instead of 2 */}
-      <section className="py-20 px-6 md:px-16 lg:px-24 bg-black text-white">
+      <section className={cn(
+        "py-20 px-6 md:px-16 lg:px-24",
+        theme === 'dark' ? "bg-black text-white" : "bg-white text-black"
+      )}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-20 max-w-7xl mx-auto">
           {/* Left Item */}
           <div>
-            <div className="border border-white w-full aspect-video mb-6"></div>
-            <p className="text-base md:text-lg text-white leading-relaxed">
+            <div className={cn(
+              "w-full aspect-video mb-6",
+              theme === 'dark' ? "border border-white" : "border border-black"
+            )}></div>
+            <p className="text-base md:text-lg leading-relaxed">
               Sankara continuously learns from anonymized 
               interactions with our therapeutic assistant Wiinta, 
               refining its diagnostic capabilities across 400+ 
@@ -180,8 +227,11 @@ const Sankara = () => {
           
           {/* Middle Item */}
           <div>
-            <div className="border border-white w-full aspect-video mb-6"></div>
-            <p className="text-base md:text-lg text-white leading-relaxed">
+            <div className={cn(
+              "w-full aspect-video mb-6",
+              theme === 'dark' ? "border border-white" : "border border-black"
+            )}></div>
+            <p className="text-base md:text-lg leading-relaxed">
               Our advanced algorithms detect subtle linguistic 
               and vocal patterns associated with specific 
               mental health conditions, enabling early 
@@ -192,8 +242,11 @@ const Sankara = () => {
           
           {/* Right Item */}
           <div>
-            <div className="border border-white w-full aspect-video mb-6"></div>
-            <p className="text-base md:text-lg text-white leading-relaxed">
+            <div className={cn(
+              "w-full aspect-video mb-6",
+              theme === 'dark' ? "border border-white" : "border border-black"
+            )}></div>
+            <p className="text-base md:text-lg leading-relaxed">
               Sankara's diagnostic protocol combines multi-modal
               assessment techniques with contextual analysis,
               providing clinicians with comprehensive insights
@@ -205,11 +258,17 @@ const Sankara = () => {
       </section>
       
       {/* Our Vision Section */}
-      <section className="py-20 px-6 md:px-16 lg:px-24 bg-black text-white">
+      <section className={cn(
+        "py-20 px-6 md:px-16 lg:px-24",
+        theme === 'dark' ? "bg-black text-white" : "bg-white text-black"
+      )}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 max-w-7xl mx-auto">
           {/* Left side - Image placeholder */}
           <div className="flex items-center justify-center">
-            <div className="border border-white w-full aspect-video max-w-lg">
+            <div className={cn(
+              "w-full aspect-video max-w-lg",
+              theme === 'dark' ? "border border-white" : "border border-black"
+            )}>
               <img 
                 src="/lovable-uploads/a298352c-b723-441e-ac55-af3adf835757.png" 
                 alt="Sankara Vision" 
@@ -222,7 +281,7 @@ const Sankara = () => {
           <div className="flex flex-col justify-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-8">Our Vision</h2>
             
-            <p className="text-base md:text-lg text-white leading-relaxed">
+            <p className="text-base md:text-lg leading-relaxed">
               At Sankara, we envision a world where every person has access to accurate mental health 
               diagnostics regardless of their financial situation or geographic location. By removing 
               the barriers that traditionally limit access to professional assessment, we empower 
@@ -233,11 +292,17 @@ const Sankara = () => {
       </section>
       
       {/* How Sankara Works Section */}
-      <section className="py-20 px-6 md:px-16 lg:px-24 bg-black text-white">
+      <section className={cn(
+        "py-20 px-6 md:px-16 lg:px-24",
+        theme === 'dark' ? "bg-black text-white" : "bg-white text-black"
+      )}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 max-w-7xl mx-auto">
           {/* Left side - Image placeholder */}
           <div className="flex items-center justify-center">
-            <div className="border border-white w-full aspect-video max-w-lg">
+            <div className={cn(
+              "w-full aspect-video max-w-lg",
+              theme === 'dark' ? "border border-white" : "border border-black"
+            )}>
               <img 
                 src="/lovable-uploads/5f1eeca8-f35e-4d94-954c-12b763e166ec.png" 
                 alt="How Sankara Works" 
@@ -250,7 +315,7 @@ const Sankara = () => {
           <div className="flex flex-col justify-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-8">How Sankara works</h2>
             
-            <p className="text-base md:text-lg text-white leading-relaxed mb-10">
+            <p className="text-base md:text-lg leading-relaxed mb-10">
               Sankara's revolutionary diagnostic capability is
               built through a unique, privacy-first approach to
               machine learning. Our free therapeutic assistant,
@@ -266,7 +331,12 @@ const Sankara = () => {
             <div className="flex justify-start">
               <Button
                 variant="outline"
-                className="rounded-full border border-white text-white hover:bg-white/10"
+                className={cn(
+                  "rounded-full",
+                  theme === 'dark' 
+                    ? "border border-white text-white hover:bg-white/10" 
+                    : "border border-black text-black hover:bg-black/10"
+                )}
               >
                 Try Wiinta
               </Button>
@@ -276,28 +346,59 @@ const Sankara = () => {
       </section>
       
       {/* Bottom Footer */}
-      <div className="py-8 px-6 md:px-16 lg:px-24 bg-black text-white border-t border-white/20">
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-sm text-white/60">
+      <div className={cn(
+        "py-8 px-6 md:px-16 lg:px-24 border-t",
+        theme === 'dark' 
+          ? "bg-black text-white border-white/20" 
+          : "bg-white text-black border-black/20"
+      )}>
+        <div className={cn(
+          "flex flex-col sm:flex-row justify-center items-center gap-4 text-sm",
+          theme === 'dark' ? "text-white/60" : "text-black/60"
+        )}>
           <span>Metacophen Inc © 2025</span>
           <span className="hidden sm:inline">|</span>
-          <a href="#" className="hover:text-white transition-colors">Privacy & Legal</a>
+          <a href="#" className={cn(
+            "transition-colors",
+            theme === 'dark' ? "hover:text-white" : "hover:text-black"
+          )}>Privacy & Legal</a>
           <span className="hidden sm:inline">|</span>
-          <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
+          <a href="#" className={cn(
+            "transition-colors",
+            theme === 'dark' ? "hover:text-white" : "hover:text-black"
+          )}>Terms of Use</a>
           <span className="hidden sm:inline">|</span>
-          <a href="#" className="hover:text-white transition-colors">Visit us on X</a>
+          <a href="#" className={cn(
+            "transition-colors",
+            theme === 'dark' ? "hover:text-white" : "hover:text-black"
+          )}>Visit us on X</a>
         </div>
       </div>
       
       {/* Footer */}
-      <footer className="py-6 px-6 md:px-16 lg:px-24 text-center text-sm border-t border-white/20 text-white/60">
+      <footer className={cn(
+        "py-6 px-6 md:px-16 lg:px-24 text-center text-sm border-t",
+        theme === 'dark' 
+          ? "border-white/20 text-white/60" 
+          : "border-black/20 text-black/60"
+      )}>
         <div className="flex flex-col sm:flex-row justify-center items-center flex-wrap gap-4">
           <span>Metacophen Inc © 2025</span>
           <span className="hidden sm:inline">|</span>
-          <a href="#" className="hover:text-white transition-colors">Privacy & Legal</a>
+          <a href="#" className={cn(
+            "transition-colors",
+            theme === 'dark' ? "hover:text-white" : "hover:text-black"
+          )}>Privacy & Legal</a>
           <span className="hidden sm:inline">|</span>
-          <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
+          <a href="#" className={cn(
+            "transition-colors",
+            theme === 'dark' ? "hover:text-white" : "hover:text-black"
+          )}>Terms of Use</a>
           <span className="hidden sm:inline">|</span>
-          <a href="#" className="hover:text-white transition-colors">Visit us on X</a>
+          <a href="#" className={cn(
+            "transition-colors",
+            theme === 'dark' ? "hover:text-white" : "hover:text-black"
+          )}>Visit us on X</a>
         </div>
       </footer>
     </div>
