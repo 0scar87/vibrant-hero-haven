@@ -3,6 +3,7 @@ import { Header } from '@/components/Header';
 import { useTheme } from '@/components/ThemeProvider';
 import { ArrowDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const Sankara = () => {
   const { theme } = useTheme();
@@ -230,6 +231,62 @@ const Sankara = () => {
           </div>
         </div>
       </section>
+      
+      {/* How Sankara Works Section */}
+      <section className="py-20 px-6 md:px-16 lg:px-24 bg-black text-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 max-w-7xl mx-auto">
+          {/* Left side - Image placeholder */}
+          <div className="flex items-center justify-center">
+            <div className="border border-white w-full aspect-video max-w-lg">
+              <img 
+                src="/lovable-uploads/5f1eeca8-f35e-4d94-954c-12b763e166ec.png" 
+                alt="How Sankara Works" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          
+          {/* Right side - Text content */}
+          <div className="flex flex-col justify-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">How Sankara works</h2>
+            
+            <p className="text-base md:text-lg text-white leading-relaxed mb-10">
+              Sankara's revolutionary diagnostic capability is
+              built through a unique, privacy-first approach to
+              machine learning. Our free therapeutic assistant,
+              Wiinta, provides supportive conversations to those
+              seeking mental wellness guidance. With explicit
+              consent, these interactions—completely
+              anonymized and stripped of identifying
+              information—contribute to Sankara's growing
+              understanding of how mental health conditions
+              manifest in language and thought patterns.
+            </p>
+            
+            <div className="flex justify-start">
+              <Button
+                variant="outline"
+                className="rounded-full border border-white text-white hover:bg-white/10"
+              >
+                Try Wiinta
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Bottom Footer */}
+      <div className="py-8 px-6 md:px-16 lg:px-24 bg-black text-white border-t border-white/20">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-sm text-white/60">
+          <span>Metacophen Inc © 2025</span>
+          <span className="hidden sm:inline">|</span>
+          <a href="#" className="hover:text-white transition-colors">Privacy & Legal</a>
+          <span className="hidden sm:inline">|</span>
+          <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
+          <span className="hidden sm:inline">|</span>
+          <a href="#" className="hover:text-white transition-colors">Visit us on X</a>
+        </div>
+      </div>
       
       {/* Footer */}
       <footer className="py-6 px-6 md:px-16 lg:px-24 text-center text-sm border-t border-white/20 text-white/60">
