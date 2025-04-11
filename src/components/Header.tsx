@@ -45,6 +45,10 @@ export function Header({ className, ...props }: HeaderProps) {
     navigate('/');
   };
 
+  const handleSignIn = () => {
+    navigate('/login');
+  };
+
   const getInitials = () => {
     if (!user) return '';
     
@@ -62,18 +66,24 @@ export function Header({ className, ...props }: HeaderProps) {
     
     return 'U';
   };
-
-  const handleSignIn = () => {
-    navigate('/login');
-  };
   
   return (
     <header
-      className={cn('w-full px-6 py-6 flex items-center justify-between', className)}
+      className={cn(
+        'w-full px-6 py-6 flex items-center justify-between',
+        theme === 'dark' ? 'text-white' : 'text-black',
+        className
+      )}
       {...props}
     >
       <div className="flex items-center">
-        <a href="/" className="text-white text-xl font-bold tracking-wider">
+        <a 
+          href="/" 
+          className={cn(
+            "text-xl font-bold tracking-wider",
+            theme === 'dark' ? 'text-white' : 'text-black'
+          )}
+        >
           WIINTA
         </a>
       </div>
@@ -84,7 +94,12 @@ export function Header({ className, ...props }: HeaderProps) {
             <Link
               key={item.label}
               to={item.href}
-              className="text-sm text-white/80 hover:text-white transition-colors"
+              className={cn(
+                "text-sm hover:opacity-100 transition-colors",
+                theme === 'dark' 
+                  ? "text-white/80 hover:text-white" 
+                  : "text-black/80 hover:text-black"
+              )}
             >
               {item.label}
             </Link>
@@ -92,7 +107,12 @@ export function Header({ className, ...props }: HeaderProps) {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm text-white/80 hover:text-white transition-colors"
+              className={cn(
+                "text-sm hover:opacity-100 transition-colors",
+                theme === 'dark' 
+                  ? "text-white/80 hover:text-white" 
+                  : "text-black/80 hover:text-black"
+              )}
             >
               {item.label}
             </a>
@@ -110,7 +130,10 @@ export function Header({ className, ...props }: HeaderProps) {
             onClick={handleSignIn}
             variant="ghost" 
             size="sm"
-            className="flex items-center gap-1.5"
+            className={cn(
+              "flex items-center gap-1.5",
+              theme === 'dark' ? 'text-white' : 'text-black'
+            )}
           >
             <LogIn className="h-4 w-4" />
             <span>Sign In</span>
@@ -121,7 +144,12 @@ export function Header({ className, ...props }: HeaderProps) {
           <Sheet>
             <SheetTrigger asChild>
               <button 
-                className="p-2 md:hidden text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md"
+                className={cn(
+                  "p-2 md:hidden hover:bg-opacity-10 rounded-md",
+                  theme === 'dark' 
+                    ? "text-white hover:bg-gray-400" 
+                    : "text-black hover:bg-gray-200"
+                )}
                 aria-label="Open menu"
               >
                 <Menu size={20} />
@@ -153,7 +181,12 @@ export function Header({ className, ...props }: HeaderProps) {
                       <Link
                         key={item.label}
                         to={item.href}
-                        className="text-sm py-2 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
+                        className={cn(
+                          "text-sm py-2 hover:opacity-100 transition-colors",
+                          theme === 'dark' 
+                            ? "text-white/80 hover:text-white" 
+                            : "text-black/80 hover:text-black"
+                        )}
                       >
                         {item.label}
                       </Link>
@@ -161,7 +194,12 @@ export function Header({ className, ...props }: HeaderProps) {
                       <a
                         key={item.label}
                         href={item.href}
-                        className="text-sm py-2 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
+                        className={cn(
+                          "text-sm py-2 hover:opacity-100 transition-colors",
+                          theme === 'dark' 
+                            ? "text-white/80 hover:text-white" 
+                            : "text-black/80 hover:text-black"
+                        )}
                       >
                         {item.label}
                       </a>
@@ -169,17 +207,30 @@ export function Header({ className, ...props }: HeaderProps) {
                   ))}
                   {user ? (
                     <>
-                      <div className="h-px bg-gray-200 dark:bg-gray-700 my-2"></div>
+                      <div className={cn(
+                        "h-px my-2",
+                        theme === 'dark' ? "bg-gray-700" : "bg-gray-200" 
+                      )}></div>
                       <Link
                         to="/profile"
-                        className="flex items-center text-sm py-2 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
+                        className={cn(
+                          "flex items-center text-sm py-2 hover:opacity-100 transition-colors",
+                          theme === 'dark' 
+                            ? "text-white/80 hover:text-white" 
+                            : "text-black/80 hover:text-black"
+                        )}
                       >
                         <Settings className="mr-2 h-4 w-4" />
                         Profile Settings
                       </Link>
                       <button
                         onClick={handleSignOut}
-                        className="flex items-center text-sm py-2 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
+                        className={cn(
+                          "flex items-center text-sm py-2 hover:opacity-100 transition-colors",
+                          theme === 'dark' 
+                            ? "text-white/80 hover:text-white" 
+                            : "text-black/80 hover:text-black"
+                        )}
                       >
                         <LogOut className="mr-2 h-4 w-4" />
                         Sign out
@@ -188,7 +239,12 @@ export function Header({ className, ...props }: HeaderProps) {
                   ) : (
                     <Link
                       to="/login"
-                      className="flex items-center text-sm py-2 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
+                      className={cn(
+                        "flex items-center text-sm py-2 hover:opacity-100 transition-colors",
+                        theme === 'dark' 
+                          ? "text-white/80 hover:text-white" 
+                          : "text-black/80 hover:text-black"
+                      )}
                     >
                       <LogIn className="mr-2 h-4 w-4" />
                       Sign in
@@ -261,3 +317,4 @@ export function Header({ className, ...props }: HeaderProps) {
     </header>
   );
 }
+
