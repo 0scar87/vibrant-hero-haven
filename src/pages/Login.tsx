@@ -76,6 +76,11 @@ const Login = () => {
     }
   };
 
+  const handleTryWiinta = () => {
+    console.log('👋 User clicked Try Wiinta, redirecting to chat page');
+    navigate('/chat');
+  };
+
   return (
     <div className={`flex flex-col min-h-screen ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <Header />
@@ -131,6 +136,15 @@ const Login = () => {
               disabled={loading}
             >
               {loading ? 'Signing in...' : 'Sign in'}
+            </Button>
+
+            <Button
+              type="button"
+              variant="outline"
+              onClick={handleTryWiinta}
+              className={`w-full ${theme === 'dark' ? 'border-white/20 text-white hover:bg-white/10' : 'border-black/20 text-black hover:bg-black/10'}`}
+            >
+              Try Wiinta without signing up
             </Button>
 
             <div className={`flex items-center gap-4 py-2 ${theme === 'dark' ? 'text-white/60' : 'text-black/60'}`}>

@@ -4,11 +4,12 @@ import { Header } from '@/components/Header';
 import { ConversationInterface } from '@/components/conversation/ConversationInterface';
 import { useTheme } from '@/components/ThemeProvider';
 import { toast } from '@/components/ui/use-toast';
+import { useAuth } from '@/components/AuthProvider';
 
 const Chat = () => {
   const { theme } = useTheme();
+  const { user } = useAuth();
   
-  // Show a toast on component mount if the Hume API key is missing
   useEffect(() => {
     // Check if we have a Hume API key in the environment
     const hasApiKey = Boolean(import.meta.env.VITE_HUME_API_KEY);
@@ -17,7 +18,8 @@ const Chat = () => {
     console.info('Hume Chat Info:', {
       apiKeyConfigured: hasApiKey,
       usingMockResponses: !hasApiKey && import.meta.env.PROD,
-      environment: import.meta.env.PROD ? 'production' : 'development'
+      environment: import.meta.env.PROD ? 'production' : 'development',
+      userLoggedIn: !!user
     });
     
     if (!hasApiKey && import.meta.env.PROD) {
@@ -27,7 +29,11 @@ const Chat = () => {
         variant: "destructive"
       });
     }
-  }, []);
+    
+    if (!user) {
+      console.info('👋 Temporary user chat session started');
+    }
+  }, [user]);
   
   return (
     <div className={`min-h-screen flex flex-col ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`}>
