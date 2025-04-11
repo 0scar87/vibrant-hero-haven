@@ -5,10 +5,11 @@ import { cn } from '@/lib/utils';
 import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from './ThemeProvider';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Menu, LogOut, User as UserIcon } from 'lucide-react';
+import { Menu, LogOut, User as UserIcon, Settings } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useAuth } from './AuthProvider';
 import { Button } from './ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -40,6 +41,24 @@ export function Header({ className, ...props }: HeaderProps) {
   
   const handleSignOut = async () => {
     await signOut();
+  };
+
+  const getInitials = () => {
+    if (!user) return '';
+    
+    // Try to get initials from the profile if available
+    const firstName = user.user_metadata?.first_name || '';
+    const lastName = user.user_metadata?.last_name || '';
+    
+    if (firstName && lastName) {
+      return `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase();
+    } else if (firstName) {
+      return firstName.charAt(0).toUpperCase();
+    } else if (user.email) {
+      return user.email.charAt(0).toUpperCase();
+    }
+    
+    return 'U';
   };
   
   return (
@@ -91,6 +110,23 @@ export function Header({ className, ...props }: HeaderProps) {
             </SheetTrigger>
             <SheetContent side="right" className="w-[250px] sm:w-[300px]">
               <div className="py-6 flex flex-col gap-6">
+                {user && (
+                  <div className="flex items-center gap-3 mb-4">
+                    <Avatar className="h-10 w-10">
+                      <AvatarImage src={user.user_metadata?.avatar_url} />
+                      <AvatarFallback>{getInitials()}</AvatarFallback>
+                    </Avatar>
+                    <div className="flex flex-col">
+                      <span className="font-medium text-sm">
+                        {user.user_metadata?.first_name 
+                          ? `${user.user_metadata.first_name} ${user.user_metadata.last_name || ''}`
+                          : user.email}
+                      </span>
+                      {user.email && <span className="text-xs text-muted-foreground">{user.email}</span>}
+                    </div>
+                  </div>
+                )}
+              
                 <h2 className="text-lg font-semibold mb-2">Navigation</h2>
                 <nav className="flex flex-col space-y-4">
                   {navItems.map((item) => (
@@ -115,6 +151,13 @@ export function Header({ className, ...props }: HeaderProps) {
                   {user ? (
                     <>
                       <div className="h-px bg-gray-200 dark:bg-gray-700 my-2"></div>
+                      <Link
+                        to="/profile"
+                        className="flex items-center text-sm py-2 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
+                      >
+                        <Settings className="mr-2 h-4 w-4" />
+                        Profile Settings
+                      </Link>
                       <button
                         onClick={handleSignOut}
                         className="flex items-center text-sm py-2 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
@@ -140,17 +183,41 @@ export function Header({ className, ...props }: HeaderProps) {
         {user ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative rounded-full h-8 w-8 p-0 overflow-hidden">
-                <UserIcon className="h-5 w-5 text-black dark:text-white" />
+              <Button variant="ghost" className="relative rounded-full h-10 w-10 p-0 overflow-hidden">
+                <Avatar>
+                  <AvatarImage src={user.user_metadata?.avatar_url} />
+                  <AvatarFallback>{getInitials()}</AvatarFallback>
+                </Avatar>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuContent align="end" className="w-56">
+              <div className="flex items-center justify-start gap-2 p-2">
+                <Avatar className="h-8 w-8">
+                  <AvatarImage src={user.user_metadata?.avatar_url} />
+                  <AvatarFallback>{getInitials()}</AvatarFallback>
+                </Avatar>
+                <div className="flex flex-col space-y-0.5">
+                  <DropdownMenuLabel className="font-medium text-sm p-0">
+                    {user.user_metadata?.first_name 
+                      ? `${user.user_metadata.first_name} ${user.user_metadata.last_name || ''}`
+                      : user.email}
+                  </DropdownMenuLabel>
+                  {user.email && (
+                    <p className="text-xs text-muted-foreground truncate max-w-[140px]">
+                      {user.email}
+                    </p>
+                  )}
+                </div>
+              </div>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
-                <Link to="/profile">Profile</Link>
+                <Link to="/profile" className="cursor-pointer flex items-center">
+                  <Settings className="mr-2 h-4 w-4" />
+                  <span>Profile Settings</span>
+                </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={handleSignOut}>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer text-destructive focus:text-destructive">
                 <LogOut className="mr-2 h-4 w-4" />
                 <span>Sign out</span>
               </DropdownMenuItem>
