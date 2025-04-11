@@ -37,49 +37,57 @@ const Research = () => {
         <div className="grid grid-cols-12 gap-4 mb-12">
           {/* Article 1 */}
           <div className="col-span-4">
-            <div className="bg-gray-300 rounded-md aspect-square flex items-center justify-center text-black text-2xl">
-              article
-            </div>
-            <div className="mt-4">
-              <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
-                Read more
-              </button>
+            <div className="relative">
+              <div className="bg-gray-300 rounded-md aspect-square flex items-center justify-center text-black text-2xl">
+                article
+              </div>
+              <div className="absolute bottom-4 left-4">
+                <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
+                  Read more
+                </button>
+              </div>
             </div>
           </div>
           
           {/* Article 2 */}
           <div className="col-span-8">
-            <div className="bg-gray-300 rounded-md aspect-[2/1] flex items-center justify-center text-black text-2xl">
-              article
-            </div>
-            <div className="mt-4">
-              <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
-                Read more
-              </button>
+            <div className="relative">
+              <div className="bg-gray-300 rounded-md aspect-[2/1] flex items-center justify-center text-black text-2xl">
+                article
+              </div>
+              <div className="absolute bottom-4 left-4">
+                <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
+                  Read more
+                </button>
+              </div>
             </div>
           </div>
           
           {/* Article 3 */}
           <div className="col-span-8">
-            <div className="bg-gray-300 rounded-md aspect-[2/1] flex items-center justify-center text-black text-2xl">
-              article
-            </div>
-            <div className="mt-4">
-              <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
-                Read more
-              </button>
+            <div className="relative">
+              <div className="bg-gray-300 rounded-md aspect-[2/1] flex items-center justify-center text-black text-2xl">
+                article
+              </div>
+              <div className="absolute bottom-4 left-4">
+                <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
+                  Read more
+                </button>
+              </div>
             </div>
           </div>
           
           {/* Article 4 */}
           <div className="col-span-4">
-            <div className="bg-gray-300 rounded-md aspect-square flex items-center justify-center text-black text-2xl">
-              article
-            </div>
-            <div className="mt-4">
-              <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
-                Read more
-              </button>
+            <div className="relative">
+              <div className="bg-gray-300 rounded-md aspect-square flex items-center justify-center text-black text-2xl">
+                article
+              </div>
+              <div className="absolute bottom-4 left-4">
+                <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
+                  Read more
+                </button>
+              </div>
             </div>
           </div>
         </div>
