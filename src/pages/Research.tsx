@@ -40,8 +40,8 @@ const Research = () => {
             <div className="bg-gray-300 rounded-md aspect-square flex items-center justify-center text-black text-2xl">
               article
             </div>
-            <div className="mt-4 flex justify-center">
-              <button className="bg-black text-white text-sm px-4 py-1 rounded-full border border-white/20">
+            <div className="mt-4">
+              <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
                 Read more
               </button>
             </div>
@@ -52,8 +52,8 @@ const Research = () => {
             <div className="bg-gray-300 rounded-md aspect-[2/1] flex items-center justify-center text-black text-2xl">
               article
             </div>
-            <div className="mt-4 flex justify-center">
-              <button className="bg-black text-white text-sm px-4 py-1 rounded-full border border-white/20">
+            <div className="mt-4">
+              <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
                 Read more
               </button>
             </div>
@@ -64,8 +64,8 @@ const Research = () => {
             <div className="bg-gray-300 rounded-md aspect-[2/1] flex items-center justify-center text-black text-2xl">
               article
             </div>
-            <div className="mt-4 flex justify-center">
-              <button className="bg-black text-white text-sm px-4 py-1 rounded-full border border-white/20">
+            <div className="mt-4">
+              <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
                 Read more
               </button>
             </div>
@@ -76,8 +76,8 @@ const Research = () => {
             <div className="bg-gray-300 rounded-md aspect-square flex items-center justify-center text-black text-2xl">
               article
             </div>
-            <div className="mt-4 flex justify-center">
-              <button className="bg-black text-white text-sm px-4 py-1 rounded-full border border-white/20">
+            <div className="mt-4">
+              <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
                 Read more
               </button>
             </div>
