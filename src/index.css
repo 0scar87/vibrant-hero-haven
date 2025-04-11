@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -86,7 +87,7 @@
 
 @layer base {
   * {
-    @apply border-border selection:bg-black/10 selection:text-black dark:selection:bg-white/10 dark:selection:text-white;
+    @apply border-border selection:bg-white/10 selection:text-white;
   }
 
   body {
@@ -97,7 +98,9 @@
   html {
     @apply scroll-smooth;
   }
+}
 
+@layer components {
   .glass-morphism {
     @apply backdrop-blur-xl bg-white/5 border border-white/10;
   }
@@ -125,5 +128,22 @@
   
   .progress-value {
     @apply h-full bg-black/70 dark:bg-white/70 rounded-full;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

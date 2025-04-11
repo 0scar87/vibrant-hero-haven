@@ -27,9 +27,9 @@ type NavItem = {
 const navItems: NavItem[] = [
   { label: 'Research', href: '/research' },
   { label: 'Company', href: '/company' },
-  { label: 'Colossus', href: '/colossus' },
   { label: 'Sankara', href: '/sankara' },
   { label: 'Careers', href: '/careers' },
+  { label: 'News', href: '#news' },
 ];
 
 interface HeaderProps extends React.HTMLAttributes<HTMLElement> {}
@@ -69,11 +69,11 @@ export function Header({ className, ...props }: HeaderProps) {
   
   return (
     <header
-      className={cn('w-full px-6 py-4 flex items-center justify-between animate-fade-in opacity-0', className)}
+      className={cn('w-full px-6 py-6 flex items-center justify-between', className)}
       {...props}
     >
       <div className="flex items-center">
-        <a href="/" className="text-black dark:text-white text-xl font-bold tracking-wider">
+        <a href="/" className="text-white text-xl font-bold tracking-wider">
           WIINTA
         </a>
       </div>
@@ -84,7 +84,7 @@ export function Header({ className, ...props }: HeaderProps) {
             <Link
               key={item.label}
               to={item.href}
-              className="text-sm text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
+              className="text-sm text-white/80 hover:text-white transition-colors"
             >
               {item.label}
             </Link>
@@ -92,7 +92,7 @@ export function Header({ className, ...props }: HeaderProps) {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
+              className="text-sm text-white/80 hover:text-white transition-colors"
             >
               {item.label}
             </a>
@@ -260,4 +260,4 @@ export function Header({ className, ...props }: HeaderProps) {
       </div>
     </header>
   );
-};
+}

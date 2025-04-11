@@ -3,21 +3,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const topics = [
-  { name: 'Mental Wellness', id: 'science-of-mindfulness' },
-  { name: 'Mindfulness', id: 'science-of-mindfulness' },
-  { name: 'Anxiety Relief', id: 'cognitive-behavioral-therapy' },
-  { name: 'Deep Sleep', id: 'sleep-and-mental-health' }
+  { name: 'Topics', id: 'science-of-mindfulness' },
+  { name: 'Topics', id: 'cognitive-behavioral-therapy' },
+  { name: 'Topics', id: 'sleep-and-mental-health' },
+  { name: 'Topics', id: 'anxiety-management' }
 ];
 
 export function TrendingTopics() {
   return (
-    <div className="w-full mt-8 animate-fade-in-delay-2 opacity-0">
-      <p className="text-black/60 dark:text-white/60 text-sm text-center mb-4">Trending</p>
-      <div className="flex flex-wrap justify-center gap-3">
-        {topics.map((topic) => (
-          <Link to={`/research/${topic.id}`} key={topic.name}>
+    <div className="w-full flex flex-col items-center justify-center py-6">
+      <p className="text-white/80 text-sm text-center mb-6">Trending</p>
+      <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+        {topics.map((topic, index) => (
+          <Link to={`/research/${topic.id}`} key={index}>
             <button
-              className="px-4 py-2 rounded-full text-sm bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/10 transition-all"
+              className="px-8 py-2 rounded-full text-sm bg-white/10 hover:bg-white/20 transition-all"
             >
               {topic.name}
             </button>
