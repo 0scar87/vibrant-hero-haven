@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Header } from '@/components/Header';
 import { useTheme } from '@/components/ThemeProvider';
@@ -32,10 +31,7 @@ const Sankara = () => {
             alt="Sankara Hero Background" 
             className="w-full h-full object-cover"
           />
-          <div className={cn(
-            "absolute inset-0",
-            theme === 'dark' ? "bg-black/60" : "bg-black/50"
-          )}></div>
+          <div className="absolute inset-0 bg-black/60"></div>
         </div>
         
         <div className="text-center max-w-4xl mx-auto z-10 text-white">
@@ -133,7 +129,7 @@ const Sankara = () => {
       {/* Content Section (to be scrolled to) */}
       <section id="content" className={cn(
         "py-20 px-4 md:px-12 lg:px-24",
-        theme === 'dark' ? "text-white" : "text-black"
+        theme === 'dark' ? "bg-black text-white" : "bg-white text-black"
       )}>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">What is Sankara?</h2>
