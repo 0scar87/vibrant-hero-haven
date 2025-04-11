@@ -11,7 +11,7 @@ export function HomeHero() {
   };
   
   return (
-    <div className="flex flex-col items-center justify-center px-6 py-24 md:py-32 lg:py-40">
+    <div className="flex flex-col items-center justify-center px-6 py-24 md:py-32">
       <h1 className="text-4xl md:text-6xl lg:text-7xl text-white font-light text-center max-w-5xl mb-16 leading-tight">
         Healing, reimagined. Powered by <br className="hidden md:block" />
         empathy, guided by You.

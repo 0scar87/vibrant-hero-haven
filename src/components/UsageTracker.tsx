@@ -17,7 +17,7 @@ export function UsageTracker({
   const progressPercentage = (minutesUsed / totalMinutes) * 100;
   
   return (
-    <div className="w-full max-w-3xl mx-auto mt-16 mb-24 px-6">
+    <div className="w-full max-w-3xl mx-auto mt-16 mb-12 px-6">
       <div className="border border-white/20 rounded-lg p-8 bg-black/20">
         <div className="flex items-center gap-2 mb-4">
           <Clock className="h-5 w-5 text-white/80" />
