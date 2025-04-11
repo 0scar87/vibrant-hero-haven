@@ -11,6 +11,7 @@ import Company from "./pages/Company";
 import NotFound from "./pages/NotFound";
 import Research from "./pages/Research";
 import ResearchTopic from "./pages/ResearchTopic";
+import ArticleDetail from "./pages/ArticleDetail";
 import Sankara from "./pages/Sankara";
 import Colossus from "./pages/Colossus";
 import Profile from "./pages/Profile";
@@ -43,6 +44,7 @@ const AppRoutes = () => {
       <Route path="/company" element={<Company />} />
       <Route path="/research" element={<Research />} />
       <Route path="/research/:topicId" element={<ResearchTopic />} />
+      <Route path="/article/:articleId" element={<ArticleDetail />} />
       <Route path="/sankara" element={<Sankara />} />
       <Route path="/colossus" element={<Colossus />} />
       <Route path="/chat" element={<Chat />} />

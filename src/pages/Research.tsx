@@ -42,7 +42,7 @@ const Research = () => {
                 article
               </div>
               <div className="absolute bottom-4 left-4">
-                <Link to="/research/1" className="inline-block bg-black hover:bg-black/80 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
+                <Link to="/article/1" className="inline-block bg-black hover:bg-black/80 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
                   Read more
                 </Link>
               </div>
@@ -56,7 +56,7 @@ const Research = () => {
                 article
               </div>
               <div className="absolute bottom-4 left-4">
-                <Link to="/research/2" className="inline-block bg-black hover:bg-black/80 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
+                <Link to="/article/2" className="inline-block bg-black hover:bg-black/80 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
                   Read more
                 </Link>
               </div>
@@ -70,7 +70,7 @@ const Research = () => {
                 article
               </div>
               <div className="absolute bottom-4 left-4">
-                <Link to="/research/3" className="inline-block bg-black hover:bg-black/80 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
+                <Link to="/article/3" className="inline-block bg-black hover:bg-black/80 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
                   Read more
                 </Link>
               </div>
@@ -84,7 +84,7 @@ const Research = () => {
                 article
               </div>
               <div className="absolute bottom-4 left-4">
-                <Link to="/research/4" className="inline-block bg-black hover:bg-black/80 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
+                <Link to="/article/4" className="inline-block bg-black hover:bg-black/80 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
                   Read more
                 </Link>
               </div>
