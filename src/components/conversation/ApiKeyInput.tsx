@@ -5,6 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { setHumeApiKey, refreshApiKey } from '@/integrations/hume/humeClient';
 import { toast } from '@/components/ui/use-toast';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { InfoIcon } from 'lucide-react';
 
 interface ApiKeyInputProps {
   onApiKeySet: () => void;
@@ -42,7 +44,17 @@ export const ApiKeyInput: React.FC<ApiKeyInputProps> = ({ onApiKeySet }) => {
           Your API key will be stored securely in your browser.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="space-y-4">
+        <Alert className="bg-amber-50 border-amber-200 dark:bg-amber-950 dark:border-amber-800">
+          <InfoIcon className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+          <AlertTitle>CORS Notice</AlertTitle>
+          <AlertDescription>
+            Due to CORS restrictions, direct API calls to Hume AI from the browser aren't possible.
+            The app is currently using simulated responses for demonstration purposes.
+            In a production environment, these calls would be routed through a backend proxy.
+          </AlertDescription>
+        </Alert>
+        
         <div className="space-y-4">
           <p className="text-sm text-muted-foreground">
             You can get your API key from the Hume AI dashboard. 

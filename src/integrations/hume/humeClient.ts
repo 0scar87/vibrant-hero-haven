@@ -64,7 +64,40 @@ export const sendTextToHume = async (request: HumeTextRequest): Promise<HumeResp
       };
     }
     
-    // This is a placeholder implementation - replace with actual Hume API call
+    // Due to CORS restrictions, we'll use a mock response for now
+    // In a production environment, you would use a proxy server or serverless function
+    // to make the API call to Hume AI
+    
+    console.log('ℹ️ Using mock response due to CORS restrictions');
+    
+    // Simulate API latency
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Provide a simulated response based on the user's input
+    let responseText = "";
+    const lowercaseText = request.text.toLowerCase();
+    
+    if (lowercaseText.includes("not feeling") || lowercaseText.includes("sick") || lowercaseText.includes("ill")) {
+      responseText = "I'm sorry to hear you're not feeling well. Make sure to get plenty of rest and fluids. If symptoms persist, consider consulting a healthcare professional.";
+    } else if (lowercaseText.includes("hello") || lowercaseText.includes("hi")) {
+      responseText = "Hello there! How can I assist you today?";
+    } else if (lowercaseText.includes("help")) {
+      responseText = "I'm here to help! Feel free to ask me any questions or let me know what's on your mind.";
+    } else if (lowercaseText.includes("weather")) {
+      responseText = "I don't have access to real-time weather data, but I'd be happy to discuss other topics with you!";
+    } else if (lowercaseText.includes("thank")) {
+      responseText = "You're welcome! Is there anything else I can help you with?";
+    } else {
+      responseText = "Thank you for sharing that with me. Is there anything specific you'd like to talk about or any questions you have?";
+    }
+    
+    return {
+      text: responseText,
+    };
+    
+    /* 
+    // This is the actual API call that would be used if CORS was not an issue
+    // or if there was a backend proxy in place
     const response = await fetch('https://api.hume.ai/v0/text/chat', {
       method: 'POST',
       headers: {
@@ -89,10 +122,12 @@ export const sendTextToHume = async (request: HumeTextRequest): Promise<HumeResp
     return {
       text: data.text || 'Sorry, I could not process your request.',
     };
+    */
+    
   } catch (error) {
     console.error('❌ Error sending text to Hume AI:', error);
     return {
-      text: 'Sorry, there was an error processing your request. Please try again later.'
+      text: 'Sorry, there was an error processing your request. This might be due to CORS restrictions when calling the Hume API directly from a browser. In a production environment, this would be handled through a backend proxy.'
     };
   }
 };
@@ -115,7 +150,19 @@ export const sendSpeechToHume = async (request: HumeSpeechRequest): Promise<Hume
       };
     }
     
-    // This is a placeholder implementation - replace with actual Hume API call
+    // Due to CORS restrictions, we'll use a mock response for now
+    console.log('ℹ️ Using mock response for speech input due to CORS restrictions');
+    
+    // Simulate API latency
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    return {
+      text: "I've received your audio message. In a production environment, this would be processed through a backend proxy to avoid CORS issues. For now, I'm responding with this placeholder message.",
+    };
+    
+    /* 
+    // This is the actual API call that would be used if CORS was not an issue
+    // or if there was a backend proxy in place
     const response = await fetch('https://api.hume.ai/v0/speech/transcribe', {
       method: 'POST',
       headers: {
@@ -147,10 +194,11 @@ export const sendSpeechToHume = async (request: HumeSpeechRequest): Promise<Hume
       text: textResponse.text,
       // audioUrl: responseData.audioUrl, // If Hume provides an audio URL
     };
+    */
   } catch (error) {
     console.error('❌ Error sending speech to Hume AI:', error);
     return {
-      text: 'Sorry, there was an error processing your audio. Please try again later.'
+      text: 'Sorry, there was an error processing your audio. This might be due to CORS restrictions when calling the Hume API directly from a browser. In a production environment, this would be handled through a backend proxy.'
     };
   }
 };
