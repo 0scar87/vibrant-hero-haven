@@ -1,10 +1,11 @@
+
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from './ThemeProvider';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Menu, LogOut, User as UserIcon, Settings } from 'lucide-react';
+import { Menu, LogOut, User as UserIcon, Settings, LogIn } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useAuth } from './AuthProvider';
 import { Button } from './ui/button';
@@ -61,6 +62,10 @@ export function Header({ className, ...props }: HeaderProps) {
     
     return 'U';
   };
+
+  const handleSignIn = () => {
+    navigate('/login');
+  };
   
   return (
     <header
@@ -98,6 +103,19 @@ export function Header({ className, ...props }: HeaderProps) {
       <div className="flex items-center space-x-2">
         {/* Always show theme toggle for all devices */}
         <ThemeToggle />
+        
+        {/* Sign In button when user is not logged in (non-mobile) */}
+        {!user && !isMobile && (
+          <Button 
+            onClick={handleSignIn}
+            variant="ghost" 
+            size="sm"
+            className="flex items-center gap-1.5"
+          >
+            <LogIn className="h-4 w-4" />
+            <span>Sign In</span>
+          </Button>
+        )}
         
         {isMobile ? (
           <Sheet>
@@ -170,8 +188,9 @@ export function Header({ className, ...props }: HeaderProps) {
                   ) : (
                     <Link
                       to="/login"
-                      className="text-sm py-2 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
+                      className="flex items-center text-sm py-2 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
                     >
+                      <LogIn className="mr-2 h-4 w-4" />
                       Sign in
                     </Link>
                   )}
