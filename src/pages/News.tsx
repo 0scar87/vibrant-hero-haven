@@ -8,6 +8,7 @@ import { useTheme } from '@/components/ThemeProvider';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { TrendingTopics } from '@/components/TrendingTopics';
 
 const News = () => {
   const { theme } = useTheme();
@@ -69,6 +70,50 @@ const News = () => {
         </section>
         
         <Separator className="bg-white/10" />
+        
+        {/* Press Release Section */}
+        <section className="py-20 px-6">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-14">
+              Wiinta to Launch Mental Healthcare Platform in Early 2026
+            </h2>
+            
+            <Separator className="bg-white/20 my-8" />
+            
+            <div className="space-y-8 text-white/90">
+              <p className="mb-6">
+                <strong>Johannesburg, South Africa – April 11, 2025</strong>
+              </p>
+              
+              <p className="mb-6">
+                South African health technology company Wiinta, founded by Karman Kekana, has announced its launch in early 2026. The platform aims to address the critical shortage of mental healthcare professionals across Africa, where the ratio stands at approximately 1 psychiatrist for every 500,000 people – leaving most without any access to care.
+              </p>
+              
+              <p className="mb-6">
+                At the core of Wiinta's innovation is "Sankara," a diagnostic accuracy tool that will help identify mental health conditions without requiring expensive consultations with psychologists or psychiatrists. Several essential features will be offered completely free, democratizing access to mental health services.
+              </p>
+              
+              <p className="mb-6">
+                "We're starting in Africa where the need is most acute, but our vision is global," explains Kekana. "Mental healthcare accessibility is a worldwide challenge that requires innovative solutions."
+              </p>
+              
+              <p className="mb-6">
+                Wiinta represents a significant step toward making quality mental healthcare available to populations that have been historically underserved, with technology bridging the gap where traditional healthcare systems cannot reach.
+              </p>
+              
+              <h3 className="text-xl font-semibold mt-10 mb-4">About Wiinta</h3>
+              
+              <p className="mb-6">
+                Founded in Johannesburg, South Africa, Wiinta develops technology to make mental healthcare accessible, affordable, and culturally responsive worldwide.
+              </p>
+              
+              <p className="mb-6">
+                <strong>Contact Information:</strong><br />
+                press@wiinta.com
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
       
       <NewsFooter />
@@ -79,15 +124,17 @@ const News = () => {
 // Custom footer for the News page
 const NewsFooter = () => {
   return (
-    <footer className="py-6 px-6 md:px-16 lg:px-24 text-center text-sm text-white/60">
-      <div className="flex flex-wrap justify-center items-center gap-4">
-        <span>Metacophen Inc © 2025</span>
-        <span className="hidden sm:inline">|</span>
-        <Link to="#" className="hover:text-white transition-colors">Privacy & Legal</Link>
-        <span className="hidden sm:inline">|</span>
-        <Link to="#" className="hover:text-white transition-colors">Terms of Use</Link>
-        <span className="hidden sm:inline">|</span>
-        <Link to="#" className="hover:text-white transition-colors">Visit us on X</Link>
+    <footer className="py-8 px-6 md:px-16 lg:px-24 text-center text-sm text-white/60 border-t border-white/10">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex flex-wrap justify-center items-center gap-4 mb-4">
+          <span>Metacophen Inc © 2025</span>
+          <span className="hidden sm:inline">|</span>
+          <Link to="#" className="hover:text-white transition-colors">Privacy & Legal</Link>
+          <span className="hidden sm:inline">|</span>
+          <Link to="#" className="hover:text-white transition-colors">Terms of Use</Link>
+          <span className="hidden sm:inline">|</span>
+          <Link to="#" className="hover:text-white transition-colors">Visit us on X</Link>
+        </div>
       </div>
     </footer>
   );
