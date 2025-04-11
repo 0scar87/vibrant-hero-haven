@@ -47,11 +47,11 @@ export const ApiKeyInput: React.FC<ApiKeyInputProps> = ({ onApiKeySet }) => {
       <CardContent className="space-y-4">
         <Alert className="bg-amber-50 border-amber-200 dark:bg-amber-950 dark:border-amber-800">
           <InfoIcon className="h-4 w-4 text-amber-600 dark:text-amber-400" />
-          <AlertTitle>CORS Notice</AlertTitle>
+          <AlertTitle>Serverless Ready</AlertTitle>
           <AlertDescription>
-            Due to CORS restrictions, direct API calls to Hume AI from the browser aren't possible.
-            The app is currently using simulated responses for demonstration purposes.
-            In a production environment, these calls would be routed through a backend proxy.
+            This application is configured to use serverless functions for API calls to Hume AI, 
+            making it ready for deployment to Vercel. Your API key is stored locally and 
+            only used for authenticating requests to the Hume API.
           </AlertDescription>
         </Alert>
         

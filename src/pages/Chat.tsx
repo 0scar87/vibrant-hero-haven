@@ -32,10 +32,11 @@ const Chat = () => {
           <div className="space-y-4">
             <Alert className="bg-blue-50 border-blue-200 dark:bg-blue-950 dark:border-blue-800">
               <InfoIcon className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-              <AlertTitle>Demo Mode Active</AlertTitle>
+              <AlertTitle>Serverless Mode</AlertTitle>
               <AlertDescription>
-                The chat is currently running in demo mode using simulated responses due to CORS restrictions.
-                In a production environment, API calls to Hume would be routed through a backend proxy.
+                The chat is now configured to use serverless functions for API calls to Hume AI. 
+                This allows you to deploy to Vercel without CORS issues. Your API key is stored 
+                locally and securely used only for authentication with the Hume API.
               </AlertDescription>
             </Alert>
             
