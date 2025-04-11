@@ -3,8 +3,12 @@
  * Hume AI API Client for text and speech conversations
  */
 
-// The API key should be stored in Supabase secrets
+// Retrieve API key based on environment
+// This works in both Lovable environment and local development with .env file
 const HUME_API_KEY = import.meta.env.VITE_HUME_API_KEY || '';
+
+// Check if API key is available
+const isHumeKeyAvailable = Boolean(HUME_API_KEY);
 
 export interface HumeTextRequest {
   text: string;
@@ -25,6 +29,14 @@ export interface HumeResponse {
 export const sendTextToHume = async (request: HumeTextRequest): Promise<HumeResponse> => {
   try {
     console.log('📤 Sending text to Hume AI:', request.text);
+    
+    // If API key is not available, return a message prompting for API key configuration
+    if (!isHumeKeyAvailable) {
+      console.warn('⚠️ Hume API key not configured');
+      return {
+        text: "API key not configured. Please add your Hume API key in the project settings or .env file."
+      };
+    }
     
     // This is a placeholder implementation - replace with actual Hume API call
     const response = await fetch('https://api.hume.ai/v0/text/chat', {
@@ -66,6 +78,14 @@ export const sendSpeechToHume = async (request: HumeSpeechRequest): Promise<Hume
   try {
     console.log('🎤 Sending audio to Hume AI');
     
+    // If API key is not available, return a message prompting for API key configuration
+    if (!isHumeKeyAvailable) {
+      console.warn('⚠️ Hume API key not configured');
+      return {
+        text: "API key not configured. Please add your Hume API key in the project settings or .env file."
+      };
+    }
+    
     // This is a placeholder implementation - replace with actual Hume API call
     const response = await fetch('https://api.hume.ai/v0/speech/transcribe', {
       method: 'POST',
@@ -105,3 +125,6 @@ export const sendSpeechToHume = async (request: HumeSpeechRequest): Promise<Hume
     };
   }
 };
+
+// Export function to check if API key is configured
+export const isHumeConfigured = () => isHumeKeyAvailable;
