@@ -8,7 +8,7 @@ const getHumeApiKey = () => {
   // First check environment variables (for local development with .env file)
   const envApiKey = import.meta.env.VITE_HUME_API_KEY || '';
   
-  // If not available, check localStorage (for Lovable environment)
+  // If not available, check localStorage (for browser environment)
   const localStorageKey = localStorage.getItem('hume_api_key') || '';
   
   return envApiKey || localStorageKey;
@@ -48,14 +48,18 @@ export interface HumeResponse {
 
 // Helper function to determine if we're in development mode and should use mocks
 const shouldUseMocks = () => {
-  // Check if we're in a development environment without a real API endpoint
-  return import.meta.env.DEV && !import.meta.env.VITE_USE_REAL_API;
+  // In development, use mocks unless VITE_USE_REAL_API is set
+  if (import.meta.env.DEV && !import.meta.env.VITE_USE_REAL_API) {
+    return true;
+  }
+  // In production or when explicitly enabled, use real API
+  return false;
 };
 
 // Determine the API URL based on environment
 const getApiUrl = () => {
-  // In production with Vercel, this will be the relative path to the API route
-  return import.meta.env.PROD ? '/api/hume' : '/api/hume';
+  // In both development and production, use the relative path to the API route
+  return '/api/hume';
 };
 
 /**

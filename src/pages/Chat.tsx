@@ -34,9 +34,8 @@ const Chat = () => {
               <InfoIcon className="h-4 w-4 text-blue-600 dark:text-blue-400" />
               <AlertTitle>Serverless Mode</AlertTitle>
               <AlertDescription>
-                The chat is now configured to use serverless functions for API calls to Hume AI. 
-                This allows you to deploy to Vercel without CORS issues. Your API key is stored 
-                locally and securely used only for authentication with the Hume API.
+                This chat is configured to use Vercel serverless functions for API calls to Hume AI. 
+                Your API key is stored locally and securely used for authentication with the Hume API.
               </AlertDescription>
             </Alert>
             

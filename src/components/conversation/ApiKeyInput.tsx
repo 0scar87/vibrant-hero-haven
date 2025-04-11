@@ -47,11 +47,10 @@ export const ApiKeyInput: React.FC<ApiKeyInputProps> = ({ onApiKeySet }) => {
       <CardContent className="space-y-4">
         <Alert className="bg-amber-50 border-amber-200 dark:bg-amber-950 dark:border-amber-800">
           <InfoIcon className="h-4 w-4 text-amber-600 dark:text-amber-400" />
-          <AlertTitle>Serverless Ready</AlertTitle>
+          <AlertTitle>Ready for Deployment</AlertTitle>
           <AlertDescription>
-            This application is configured to use serverless functions for API calls to Hume AI, 
-            making it ready for deployment to Vercel. Your API key is stored locally and 
-            only used for authenticating requests to the Hume API.
+            This application is configured for Vercel deployment with serverless functions. 
+            Your API key is stored locally and only used for authenticating with the Hume API.
           </AlertDescription>
         </Alert>
         
