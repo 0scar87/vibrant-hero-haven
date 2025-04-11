@@ -34,7 +34,7 @@ export const ConversationInterface: React.FC = () => {
   }, [messages]);
   
   return (
-    <Card className="h-full flex flex-col overflow-hidden">
+    <Card className="h-full flex flex-col overflow-hidden w-full">
       <CardHeader className="border-b">
         <div className="flex justify-between items-center">
           <CardTitle>Conversation with Wiinta</CardTitle>

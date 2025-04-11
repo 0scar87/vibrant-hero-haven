@@ -45,19 +45,21 @@ export const ConversationInput: React.FC<ConversationInputProps> = ({
   };
 
   return (
-    <div className="border-t border-border p-4 bg-background">
-      <div className="flex items-end space-x-2">
-        <Textarea
-          ref={textareaRef}
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Type your message..."
-          className="resize-none min-h-[80px]"
-          disabled={isLoading}
-        />
+    <div className="border-t border-border p-4 bg-background w-full">
+      <div className="flex items-end gap-2 max-w-full">
+        <div className="flex-1">
+          <Textarea
+            ref={textareaRef}
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Type your message..."
+            className="resize-none min-h-[80px] w-full"
+            disabled={isLoading}
+          />
+        </div>
         
-        <div className="flex flex-col space-y-2">
+        <div className="flex flex-col space-y-2 flex-shrink-0">
           <Button 
             type="button"
             size="icon"

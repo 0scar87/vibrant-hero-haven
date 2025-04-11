@@ -39,8 +39,8 @@ const Chat = () => {
     <div className={`min-h-screen flex flex-col ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <Header />
       
-      <div className="flex-1 container max-w-4xl mx-auto px-4 py-8">
-        <div className="h-[calc(100vh-180px)]">
+      <div className="flex-1 w-full max-w-6xl mx-auto px-4 py-8">
+        <div className="h-[calc(100vh-180px)] w-full">
           <ConversationInterface />
         </div>
       </div>
