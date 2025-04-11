@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/components/AuthProvider';
 import { Header } from '@/components/Header';
 import { useTheme } from '@/components/ThemeProvider';
@@ -18,6 +17,7 @@ const Profile = () => {
   const { user, session, loading, signOut } = useAuth();
   const { theme } = useTheme();
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [updating, setUpdating] = useState(false);
@@ -89,6 +89,7 @@ const Profile = () => {
   const handleSignOut = async () => {
     try {
       await signOut();
+      navigate('/');
       toast({
         title: 'Signed out',
         description: 'You have been signed out successfully.',

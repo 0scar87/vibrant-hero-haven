@@ -2,6 +2,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Session, User } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
+import { useNavigate } from 'react-router-dom';
 
 interface AuthContextType {
   session: Session | null;
@@ -43,10 +44,22 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const signOut = async () => {
     console.log('Signing out user:', user?.email);
     try {
-      await supabase.auth.signOut();
-      console.log('Sign out successful');
+      // Clear local state first
+      setUser(null);
+      setSession(null);
+      
+      // Then attempt to sign out from Supabase
+      const { error } = await supabase.auth.signOut();
+      
+      if (error) {
+        console.error('Error signing out from Supabase:', error);
+        // Even if there's an error with Supabase, we've already cleared the local state
+      } else {
+        console.log('Sign out successful');
+      }
     } catch (error) {
-      console.error('Error signing out:', error);
+      console.error('Error in signOut function:', error);
+      // Even if there's an exception, we've already cleared the local state
     }
   };
 

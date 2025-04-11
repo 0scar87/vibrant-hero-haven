@@ -38,9 +38,11 @@ export function Header({ className, ...props }: HeaderProps) {
   const { theme } = useTheme();
   const isMobile = useIsMobile();
   const { user, signOut } = useAuth();
+  const navigate = useNavigate();
   
   const handleSignOut = async () => {
     await signOut();
+    navigate('/');
   };
 
   const getInitials = () => {
