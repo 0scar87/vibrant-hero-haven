@@ -3,12 +3,35 @@
  * Hume AI API Client for text and speech conversations
  */
 
-// Retrieve API key based on environment
-// This works in both Lovable environment and local development with .env file
-const HUME_API_KEY = import.meta.env.VITE_HUME_API_KEY || '';
+// Retrieve API key based on environment or localStorage
+const getHumeApiKey = () => {
+  // First check environment variables (for local development with .env file)
+  const envApiKey = import.meta.env.VITE_HUME_API_KEY || '';
+  
+  // If not available, check localStorage (for Lovable environment)
+  const localStorageKey = localStorage.getItem('hume_api_key') || '';
+  
+  return envApiKey || localStorageKey;
+};
+
+// Get current API key
+let HUME_API_KEY = getHumeApiKey();
+
+// Function to update API key
+export const setHumeApiKey = (apiKey: string) => {
+  HUME_API_KEY = apiKey;
+  localStorage.setItem('hume_api_key', apiKey);
+  return true;
+};
 
 // Check if API key is available
-const isHumeKeyAvailable = Boolean(HUME_API_KEY);
+export const isHumeConfigured = () => Boolean(HUME_API_KEY);
+
+// Refresh API key from storage (useful after setting)
+export const refreshApiKey = () => {
+  HUME_API_KEY = getHumeApiKey();
+  return isHumeConfigured();
+};
 
 export interface HumeTextRequest {
   text: string;
@@ -30,11 +53,14 @@ export const sendTextToHume = async (request: HumeTextRequest): Promise<HumeResp
   try {
     console.log('📤 Sending text to Hume AI:', request.text);
     
+    // Refresh API key before using
+    refreshApiKey();
+    
     // If API key is not available, return a message prompting for API key configuration
-    if (!isHumeKeyAvailable) {
+    if (!isHumeConfigured()) {
       console.warn('⚠️ Hume API key not configured');
       return {
-        text: "API key not configured. Please add your Hume API key in the project settings or .env file."
+        text: "API key not configured. Please add your Hume API key in the API Key settings."
       };
     }
     
@@ -78,11 +104,14 @@ export const sendSpeechToHume = async (request: HumeSpeechRequest): Promise<Hume
   try {
     console.log('🎤 Sending audio to Hume AI');
     
+    // Refresh API key before using
+    refreshApiKey();
+    
     // If API key is not available, return a message prompting for API key configuration
-    if (!isHumeKeyAvailable) {
+    if (!isHumeConfigured()) {
       console.warn('⚠️ Hume API key not configured');
       return {
-        text: "API key not configured. Please add your Hume API key in the project settings or .env file."
+        text: "API key not configured. Please add your Hume API key in the API Key settings."
       };
     }
     
@@ -125,6 +154,3 @@ export const sendSpeechToHume = async (request: HumeSpeechRequest): Promise<Hume
     };
   }
 };
-
-// Export function to check if API key is configured
-export const isHumeConfigured = () => isHumeKeyAvailable;
