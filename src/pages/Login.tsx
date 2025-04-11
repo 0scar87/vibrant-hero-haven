@@ -1,27 +1,73 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { Header } from '@/components/Header';
 import { useTheme } from '@/components/ThemeProvider';
+import { supabase } from '@/integrations/supabase/client';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
   const { theme } = useTheme();
+  
+  // Check if user is already logged in
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data } = await supabase.auth.getSession();
+      if (data.session) {
+        navigate('/');
+      }
+    };
+    
+    checkSession();
+  }, [navigate]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // This would normally connect to an authentication service
-    console.log('Login attempt with:', { email, password });
-    toast({
-      title: "Login Attempted",
-      description: "This is a demo. Authentication is not implemented yet.",
-    });
+    
+    if (!email || !password) {
+      toast({
+        title: "Error",
+        description: "Please enter both email and password.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    try {
+      setLoading(true);
+      
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
+      
+      if (error) {
+        throw error;
+      }
+      
+      if (data.user) {
+        toast({
+          title: "Success",
+          description: "You have been logged in successfully.",
+        });
+        navigate('/');
+      }
+    } catch (error: any) {
+      toast({
+        title: "Login failed",
+        description: error.message || "An error occurred during login.",
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -49,6 +95,7 @@ const Login = () => {
                 placeholder="jane@gmail.com"
                 className={`${theme === 'dark' ? 'bg-white/5 border-white/10 text-white placeholder:text-white/40' : 'bg-black/5 border-black/10 text-black placeholder:text-black/40'}`}
                 required
+                disabled={loading}
               />
             </div>
 
@@ -62,6 +109,7 @@ const Login = () => {
                 placeholder="At least 8 characters"
                 className={`${theme === 'dark' ? 'bg-white/5 border-white/10 text-white placeholder:text-white/40' : 'bg-black/5 border-black/10 text-black placeholder:text-black/40'}`}
                 required
+                disabled={loading}
               />
             </div>
 
@@ -74,8 +122,9 @@ const Login = () => {
             <Button
               type="submit"
               className={`w-full ${theme === 'dark' ? 'bg-white text-black hover:bg-white/90' : 'bg-black text-white hover:bg-black/90'} transition-colors`}
+              disabled={loading}
             >
-              Sign in
+              {loading ? 'Signing in...' : 'Sign in'}
             </Button>
 
             <div className={`flex items-center gap-4 py-2 ${theme === 'dark' ? 'text-white/60' : 'text-black/60'}`}>

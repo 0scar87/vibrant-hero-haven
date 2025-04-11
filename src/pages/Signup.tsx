@@ -1,22 +1,36 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { Header } from '@/components/Header';
 import { useTheme } from '@/components/ThemeProvider';
+import { supabase } from '@/integrations/supabase/client';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
   const { theme } = useTheme();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Check if user is already logged in
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data } = await supabase.auth.getSession();
+      if (data.session) {
+        navigate('/');
+      }
+    };
+    
+    checkSession();
+  }, [navigate]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (password !== confirmPassword) {
@@ -28,12 +42,54 @@ const Signup = () => {
       return;
     }
     
-    // This would normally connect to an authentication service
-    console.log('Signup attempt with:', { name, email, password });
-    toast({
-      title: "Signup Attempted",
-      description: "This is a demo. Authentication is not implemented yet.",
-    });
+    if (password.length < 6) {
+      toast({
+        title: "Password too short",
+        description: "Password must be at least 6 characters long.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    try {
+      setLoading(true);
+      
+      // Split the name into first name and last name
+      const nameParts = name.trim().split(/\s+/);
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || '';
+      
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            first_name: firstName,
+            last_name: lastName,
+          }
+        }
+      });
+      
+      if (error) {
+        throw error;
+      }
+      
+      if (data.user) {
+        toast({
+          title: "Account created",
+          description: "Your account has been created successfully. Please check your email to verify your account.",
+        });
+        navigate('/login');
+      }
+    } catch (error: any) {
+      toast({
+        title: "Signup failed",
+        description: error.message || "An error occurred during signup.",
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -61,6 +117,7 @@ const Signup = () => {
                 placeholder="Jane Doe"
                 className={`${theme === 'dark' ? 'bg-white/5 border-white/10 text-white placeholder:text-white/40' : 'bg-black/5 border-black/10 text-black placeholder:text-black/40'}`}
                 required
+                disabled={loading}
               />
             </div>
             
@@ -74,6 +131,7 @@ const Signup = () => {
                 placeholder="jane@gmail.com"
                 className={`${theme === 'dark' ? 'bg-white/5 border-white/10 text-white placeholder:text-white/40' : 'bg-black/5 border-black/10 text-black placeholder:text-black/40'}`}
                 required
+                disabled={loading}
               />
             </div>
 
@@ -84,9 +142,10 @@ const Signup = () => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="At least 8 characters"
+                placeholder="At least 6 characters"
                 className={`${theme === 'dark' ? 'bg-white/5 border-white/10 text-white placeholder:text-white/40' : 'bg-black/5 border-black/10 text-black placeholder:text-black/40'}`}
                 required
+                disabled={loading}
               />
             </div>
             
@@ -100,14 +159,16 @@ const Signup = () => {
                 placeholder="Confirm your password"
                 className={`${theme === 'dark' ? 'bg-white/5 border-white/10 text-white placeholder:text-white/40' : 'bg-black/5 border-black/10 text-black placeholder:text-black/40'}`}
                 required
+                disabled={loading}
               />
             </div>
 
             <Button
               type="submit"
               className={`w-full ${theme === 'dark' ? 'bg-white text-black hover:bg-white/90' : 'bg-black text-white hover:bg-black/90'} transition-colors`}
+              disabled={loading}
             >
-              Sign up
+              {loading ? 'Creating account...' : 'Sign up'}
             </Button>
 
             <div className={`flex items-center gap-4 py-2 ${theme === 'dark' ? 'text-white/60' : 'text-black/60'}`}>

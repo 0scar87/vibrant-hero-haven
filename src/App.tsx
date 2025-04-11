@@ -14,30 +14,33 @@ import ResearchTopic from "./pages/ResearchTopic";
 import Sankara from "./pages/Sankara";
 import Colossus from "./pages/Colossus";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { AuthProvider } from "./components/AuthProvider";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/company" element={<Company />} />
-            <Route path="/research" element={<Research />} />
-            <Route path="/research/:topicId" element={<ResearchTopic />} />
-            <Route path="/sankara" element={<Sankara />} />
-            <Route path="/colossus" element={<Colossus />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
+      <AuthProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/company" element={<Company />} />
+              <Route path="/research" element={<Research />} />
+              <Route path="/research/:topicId" element={<ResearchTopic />} />
+              <Route path="/sankara" element={<Sankara />} />
+              <Route path="/colossus" element={<Colossus />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </AuthProvider>
     </ThemeProvider>
   </QueryClientProvider>
 );

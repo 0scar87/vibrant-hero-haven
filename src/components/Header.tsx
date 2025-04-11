@@ -5,8 +5,18 @@ import { cn } from '@/lib/utils';
 import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from './ThemeProvider';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Menu } from 'lucide-react';
+import { Menu, LogOut, User as UserIcon } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { useAuth } from './AuthProvider';
+import { Button } from './ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 type NavItem = {
   label: string;
@@ -26,6 +36,11 @@ interface HeaderProps extends React.HTMLAttributes<HTMLElement> {}
 export function Header({ className, ...props }: HeaderProps) {
   const { theme } = useTheme();
   const isMobile = useIsMobile();
+  const { user, signOut } = useAuth();
+  
+  const handleSignOut = async () => {
+    await signOut();
+  };
   
   return (
     <header
@@ -97,25 +112,65 @@ export function Header({ className, ...props }: HeaderProps) {
                       </a>
                     )
                   ))}
+                  {user ? (
+                    <>
+                      <div className="h-px bg-gray-200 dark:bg-gray-700 my-2"></div>
+                      <button
+                        onClick={handleSignOut}
+                        className="flex items-center text-sm py-2 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
+                      >
+                        <LogOut className="mr-2 h-4 w-4" />
+                        Sign out
+                      </button>
+                    </>
+                  ) : (
+                    <Link
+                      to="/login"
+                      className="text-sm py-2 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
+                    >
+                      Sign in
+                    </Link>
+                  )}
                 </nav>
               </div>
             </SheetContent>
           </Sheet>
         ) : null}
         
-        <Link
-          to="/login"
-          className={cn(
-            "inline-flex items-center justify-center rounded-full px-5 py-2 text-sm transition-all",
-            theme === 'dark' 
-              ? "bg-white text-black hover:bg-white/90" 
-              : "bg-black text-white hover:bg-black/90",
-            "border border-black/20 dark:border-white/20"
-          )}
-        >
-          Try Wiinta
-        </Link>
+        {user ? (
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="relative rounded-full h-8 w-8 p-0 overflow-hidden">
+                <UserIcon className="h-5 w-5 text-black dark:text-white" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem asChild>
+                <Link to="/profile">Profile</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={handleSignOut}>
+                <LogOut className="mr-2 h-4 w-4" />
+                <span>Sign out</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        ) : (
+          <Link
+            to="/login"
+            className={cn(
+              "inline-flex items-center justify-center rounded-full px-5 py-2 text-sm transition-all",
+              theme === 'dark' 
+                ? "bg-white text-black hover:bg-white/90" 
+                : "bg-black text-white hover:bg-black/90",
+              "border border-black/20 dark:border-white/20"
+            )}
+          >
+            Try Wiinta
+          </Link>
+        )}
       </div>
     </header>
   );
-}
+};
