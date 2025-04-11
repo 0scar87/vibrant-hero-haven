@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Header } from '@/components/Header';
 import { useTheme } from '@/components/ThemeProvider';
@@ -163,9 +162,9 @@ const Sankara = () => {
         </div>
       </section>
       
-      {/* New Section: Duplicate of the template shown in the image */}
+      {/* New Section: Duplicate of the template shown in the image with 3 blocks instead of 2 */}
       <section className="py-20 px-6 md:px-16 lg:px-24 bg-black text-white">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-20 max-w-7xl mx-auto">
           {/* Left Item */}
           <div>
             <div className="border border-white w-full aspect-video mb-6"></div>
@@ -178,7 +177,7 @@ const Sankara = () => {
             </p>
           </div>
           
-          {/* Right Item */}
+          {/* Middle Item */}
           <div>
             <div className="border border-white w-full aspect-video mb-6"></div>
             <p className="text-base md:text-lg text-white leading-relaxed">
@@ -187,6 +186,18 @@ const Sankara = () => {
               mental health conditions, enabling early 
               identification of conditions that might otherwise 
               remain undiagnosed for years.
+            </p>
+          </div>
+          
+          {/* Right Item */}
+          <div>
+            <div className="border border-white w-full aspect-video mb-6"></div>
+            <p className="text-base md:text-lg text-white leading-relaxed">
+              Sankara's diagnostic protocol combines multi-modal
+              assessment techniques with contextual analysis,
+              providing clinicians with comprehensive insights
+              that enhance treatment planning and improve
+              patient outcomes.
             </p>
           </div>
         </div>
