@@ -3,10 +3,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const topics = [
-  { name: 'Topics', id: 'science-of-mindfulness' },
-  { name: 'Topics', id: 'cognitive-behavioral-therapy' },
-  { name: 'Topics', id: 'sleep-and-mental-health' },
-  { name: 'Topics', id: 'anxiety-management' }
+  { name: 'Science', id: 'science-of-mindfulness' },
+  { name: 'Therapy', id: 'cognitive-behavioral-therapy' },
+  { name: 'Sleep', id: 'sleep-and-mental-health' },
+  { name: 'Anxiety', id: 'anxiety-management' }
 ];
 
 export function TrendingTopics() {

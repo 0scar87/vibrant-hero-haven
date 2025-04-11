@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,6 +17,7 @@ import Colossus from "./pages/Colossus";
 import Careers from "./pages/Careers";
 import Profile from "./pages/Profile";
 import Chat from "./pages/Chat";
+import News from "./pages/News";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { AuthProvider } from "./components/AuthProvider";
 import { useAuth } from "./components/AuthProvider";
@@ -47,6 +49,7 @@ const AppRoutes = () => {
       <Route path="/sankara" element={<Sankara />} />
       <Route path="/colossus" element={<Colossus />} />
       <Route path="/careers" element={<Careers />} />
+      <Route path="/news" element={<News />} />
       <Route path="/chat" element={<Chat />} />
       <Route path="/profile" element={
         <RequireAuth>
