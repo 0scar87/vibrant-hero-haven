@@ -42,7 +42,7 @@ const Research = () => {
                 article
               </div>
               <div className="absolute bottom-4 left-4">
-                <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
+                <button className="bg-black hover:bg-black/80 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
                   Read more
                 </button>
               </div>
@@ -56,7 +56,7 @@ const Research = () => {
                 article
               </div>
               <div className="absolute bottom-4 left-4">
-                <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
+                <button className="bg-black hover:bg-black/80 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
                   Read more
                 </button>
               </div>
@@ -70,7 +70,7 @@ const Research = () => {
                 article
               </div>
               <div className="absolute bottom-4 left-4">
-                <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
+                <button className="bg-black hover:bg-black/80 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
                   Read more
                 </button>
               </div>
@@ -84,7 +84,7 @@ const Research = () => {
                 article
               </div>
               <div className="absolute bottom-4 left-4">
-                <button className="bg-transparent hover:bg-white/10 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
+                <button className="bg-black hover:bg-black/80 text-white text-sm px-4 py-1.5 rounded-full border border-white/20">
                   Read more
                 </button>
               </div>
