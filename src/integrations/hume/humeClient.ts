@@ -3,12 +3,12 @@
  * Hume AI API Client for text and speech conversations
  */
 
-// Retrieve API key based on environment or localStorage
+// Retrieve API key from environment
 const getHumeApiKey = () => {
-  // First check environment variables (for local development with .env file)
+  // First check environment variables (priority)
   const envApiKey = import.meta.env.VITE_HUME_API_KEY || '';
   
-  // If not available, check localStorage (for browser environment)
+  // Fallback to localStorage (only used during development for testing)
   const localStorageKey = localStorage.getItem('hume_api_key') || '';
   
   return envApiKey || localStorageKey;
@@ -17,7 +17,7 @@ const getHumeApiKey = () => {
 // Get current API key
 let HUME_API_KEY = getHumeApiKey();
 
-// Function to update API key
+// Function to update API key (only for development/testing)
 export const setHumeApiKey = (apiKey: string) => {
   HUME_API_KEY = apiKey;
   localStorage.setItem('hume_api_key', apiKey);
@@ -48,7 +48,7 @@ export interface HumeResponse {
 
 // Helper function to determine if we're in development mode and should use mocks
 const shouldUseMocks = () => {
-  // In development, use mocks unless VITE_USE_REAL_API is set
+  // Only use mocks if explicitly set or no API key is available
   if (import.meta.env.DEV && !import.meta.env.VITE_USE_REAL_API) {
     return true;
   }
@@ -72,11 +72,11 @@ export const sendTextToHume = async (request: HumeTextRequest): Promise<HumeResp
     // Refresh API key before using
     refreshApiKey();
     
-    // If API key is not available, return a message prompting for API key configuration
+    // If API key is not available, return a message about it
     if (!isHumeConfigured()) {
-      console.warn('⚠️ Hume API key not configured');
+      console.warn('⚠️ Hume API key not configured in environment');
       return {
-        text: "API key not configured. Please add your Hume API key in the API Key settings."
+        text: "Hume AI is not properly configured. Please contact the administrator."
       };
     }
 

@@ -3,7 +3,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 const HUME_API_URL = 'https://api.hume.ai/v0';
-const DEFAULT_ERROR_MESSAGE = 'Failed to communicate with Hume AI. Please check your API key.';
+const DEFAULT_ERROR_MESSAGE = 'Failed to communicate with Hume AI.';
 
 export default async function handler(request: VercelRequest, response: VercelResponse) {
   // Set CORS headers to allow requests from your deployed domain
@@ -25,9 +25,13 @@ export default async function handler(request: VercelRequest, response: VercelRe
 
   try {
     const { endpoint, payload, apiKey } = request.body;
+    
+    // Get API key from environment if not provided in request
+    // Prioritize the environment variable for production use
+    const HUME_API_KEY = process.env.HUME_API_KEY || apiKey || '';
 
-    if (!apiKey) {
-      return response.status(400).json({ error: 'API key is required' });
+    if (!HUME_API_KEY) {
+      return response.status(400).json({ error: 'No API key available. Please configure HUME_API_KEY in your environment variables.' });
     }
 
     if (!endpoint || !payload) {
@@ -39,7 +43,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
+        'Authorization': `Bearer ${HUME_API_KEY}`
       },
       body: JSON.stringify(payload)
     });
