@@ -29,7 +29,7 @@ const navItems: NavItem[] = [
   { label: 'Company', href: '/company' },
   { label: 'Colossus', href: '/colossus' },
   { label: 'Sankara', href: '/sankara' },
-  { label: 'Careers', href: '#careers' },
+  { label: 'Careers', href: '/careers' },
 ];
 
 interface HeaderProps extends React.HTMLAttributes<HTMLElement> {}

@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,6 +13,7 @@ import ResearchTopic from "./pages/ResearchTopic";
 import ArticleDetail from "./pages/ArticleDetail";
 import Sankara from "./pages/Sankara";
 import Colossus from "./pages/Colossus";
+import Careers from "./pages/Careers";
 import Profile from "./pages/Profile";
 import Chat from "./pages/Chat";
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -22,7 +22,6 @@ import { useAuth } from "./components/AuthProvider";
 
 const queryClient = new QueryClient();
 
-// Simple route guard component
 const RequireAuth = ({ children }: { children: JSX.Element }) => {
   const { user, loading } = useAuth();
   
@@ -47,13 +46,13 @@ const AppRoutes = () => {
       <Route path="/article/:articleId" element={<ArticleDetail />} />
       <Route path="/sankara" element={<Sankara />} />
       <Route path="/colossus" element={<Colossus />} />
+      <Route path="/careers" element={<Careers />} />
       <Route path="/chat" element={<Chat />} />
       <Route path="/profile" element={
         <RequireAuth>
           <Profile />
         </RequireAuth>
       } />
-      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
